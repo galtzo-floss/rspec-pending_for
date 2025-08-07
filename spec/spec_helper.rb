@@ -5,13 +5,14 @@ require_relative "config/byebug"
 require_relative "config/rspec/rspec_core"
 require_relative "config/rspec/rspec_block_is_expected"
 
+# NOTE: Gemfiles for older rubies won't have kettle-soup-cover.
+#       The rescue LoadError handles that scenario.
 begin
-  # Last thing before this gem is code coverage:
   require "kettle-soup-cover"
-  # Next line has a side effect of running the local ".simplecov" configuration
-  require "simplecov" if defined?(Kettle) && Kettle::Soup::Cover::DO_COV
-rescue LoadError
-  nil
+  require "simplecov" if Kettle::Soup::Cover::DO_COV # `.simplecov` is run here!
+rescue LoadError => error
+  # check the error message and re-raise when unexpected
+  raise error unless error.message.include?("kettle")
 end
 
 # This gem
