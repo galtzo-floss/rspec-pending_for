@@ -8,6 +8,10 @@
       <sourceFolder url="file://$MODULE_DIR$/features" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/.yardoc" />
+      <excludeFolder url="file://$MODULE_DIR$/coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/docs" />
+      <excludeFolder url="file://$MODULE_DIR$/pkg" />
     </content>
     <orderEntry type="jdk" jdkName="asdf: 3.4.2" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
