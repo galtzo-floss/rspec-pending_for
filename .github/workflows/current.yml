@@ -11,9 +11,6 @@ on:
     tags:
       - '!*' # Do not execute on tags
   pull_request:
-    # types specification prevents double build on push & pull request
-    # See: https://github.com/Shopify/ruby-style-guide/pull/235#issuecomment-777623642
-    types: [opened, synchronize]
     branches:
       - '*'
   # Allow manually triggering the workflow.
@@ -30,7 +27,7 @@ concurrency:
 
 jobs:
   test:
-    if: (github.event_name == 'push' || github.event.pull_request.head.repo.owner.login != 'galtzo-floss') && !contains(github.event.commits[0].message, '[ci skip]') && !contains(github.event.commits[0].message, '[skip ci]')
+    if: !contains(github.event.commits[0].message, '[ci skip]') && !contains(github.event.commits[0].message, '[skip ci]')
     name: Specs ${{ matrix.ruby }}@${{ matrix.appraisal }}
     runs-on: ubuntu-latest
     continue-on-error: ${{ matrix.experimental || endsWith(matrix.ruby, 'head') }}
