@@ -35,13 +35,15 @@ jobs:
     strategy:
       matrix:
         include:
-          # jruby-9.3 (targets Ruby 2.6 compatibility)
-          - ruby: "jruby-9.3"
-            appraisal: "ruby-2-6"
-            exec_cmd: "rake test"
-            gemfile: "Appraisal.root"
-            rubygems: default
-            bundler: default
+#          # NoMethodError: undefined method `resolve_feature_path' for #<Array:0x566f4659>
+#          #       <main> at /home/runner/.rubies/jruby-9.3.15.0/lib/ruby/gems/shared/gems/erb-4.0.4-java/lib/erb/util.rb:9
+#          # jruby-9.3 (targets Ruby 2.6 compatibility)
+#          - ruby: "jruby-9.3"
+#            appraisal: "ruby-2-6"
+#            exec_cmd: "rake test"
+#            gemfile: "Appraisal.root"
+#            rubygems: default
+#            bundler: default
 
           # jruby-9.4 (targets Ruby 3.1 compatibility)
           - ruby: "jruby-9.4"
