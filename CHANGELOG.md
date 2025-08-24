@@ -19,10 +19,21 @@ Please file a bug if you notice a violation of semantic versioning.
 ## [Unreleased]
 ### Added
 ### Changed
-### Fixed
+### Deprecated
 ### Removed
+### Fixed
+### Security
 
-## [0.1.7] - 2025-02-24 ([tag][1.0.0t])
+## [0.1.18] - 2025-02-24 ([tag][0.1.18t])
+- TAG: [v0.1.8][0.1.18t]
+- COVERAGE: 100.00% -- 86/86 lines in 6 files
+- BRANCH COVERAGE: 100.00% -- 33/33 branches in 6 files
+- 63.64% documented
+### Added
+- Versions can now be ranges!
+
+## [0.1.17] - 2025-02-24 ([tag][0.1.17t])
+- TAG: [v0.1.7][0.1.17t]
 - COVERAGE:  98.44% -- 63/64 lines in 6 files
 - BRANCH COVERAGE:  94.44% -- 17/18 branches in 6 files
 - 63.64% documented
@@ -32,6 +43,8 @@ Please file a bug if you notice a violation of semantic versioning.
 - Compatibility with truffleruby (maybe? not able to run it in CI yet)
 - Fixed compatibility with Ruby < 2
 
-[Unreleased]: https://github.com/pboling/rspec-pending_for/compare/v0.1.7...HEAD
-[0.1.7]: https://github.com/pboling/rspec-pending_for/compare/v0.1.16...v0.1.7
-[0.1.7t]: https://github.com/pboling/rspec-pending_for/tags/v0.1.6
+[Unreleased]: https://github.com/pboling/rspec-pending_for/compare/v0.1.18...HEAD
+[0.1.18]: https://github.com/pboling/rspec-pending_for/compare/v0.1.17...v0.1.18
+[0.1.18t]: https://github.com/pboling/rspec-pending_for/tags/v0.1.18
+[0.1.17]: https://github.com/pboling/rspec-pending_for/compare/v0.1.16...v0.1.17
+[0.1.17t]: https://github.com/pboling/rspec-pending_for/tags/v0.1.17

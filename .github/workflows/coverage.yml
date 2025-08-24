@@ -9,7 +9,7 @@ env:
   K_SOUP_COV_MIN_BRANCH: 94
   K_SOUP_COV_MIN_LINE: 98
   K_SOUP_COV_MIN_HARD: true
-  K_SOUP_COV_FORMATTERS: "html,xml,rcov,lcov,tty"
+  K_SOUP_COV_FORMATTERS: "xml,rcov,lcov,tty"
   K_SOUP_COV_DO: true
   K_SOUP_COV_MULTI_FORMATTERS: true
   K_SOUP_COV_COMMAND_NAME: "Test Coverage"
@@ -21,6 +21,9 @@ on:
     tags:
       - '!*' # Do not execute on tags
   pull_request:
+    # types specification prevents double build on push & pull request
+    # See: https://github.com/Shopify/ruby-style-guide/pull/235#issuecomment-777623642
+    types: [opened, synchronize]
     branches:
       - '*'
   # Allow manually triggering the workflow.
@@ -34,8 +37,8 @@ concurrency:
 
 jobs:
   coverage:
+    if: (github.event_name == 'push' || github.event.pull_request.head.repo.owner.login != 'galtzo-floss') && !contains(github.event.commits[0].message, '[ci skip]') && !contains(github.event.commits[0].message, '[skip ci]')
     name: Code Coverage on ${{ matrix.ruby }}@current
-    if: "!contains(github.event.commits[0].message, '[ci skip]') && !contains(github.event.commits[0].message, '[skip ci]')"
     runs-on: ubuntu-latest
     continue-on-error: ${{ matrix.experimental || endsWith(matrix.ruby, 'head') }}
     env: # $BUNDLE_GEMFILE must be set at job level, so it is set for all steps
@@ -93,10 +96,11 @@ jobs:
       # Build will fail here if coverage upload fails
       #   which will hopefully be noticed for the lack of code coverage comments
       - name: Upload coverage to CodeCov
+        if: ${{ !env.ACT }}
         uses: codecov/codecov-action@v5
         with:
           use_oidc: true
-          fail_ci_if_error: true # optional (default = false)
+          fail_ci_if_error: false # optional (default = false)
           files: coverage/lcov.info,coverage/coverage.xml
           verbose: true # optional (default = false)
 

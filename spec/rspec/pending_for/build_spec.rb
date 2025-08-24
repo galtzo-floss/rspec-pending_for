@@ -97,5 +97,89 @@ RSpec.describe Rspec::PendingFor::Build do
         expect(described_class.new(:engine => "ruby").message).to be_nil
       end
     end
+
+    context "when a reason overrides default messaging" do
+      it "uses provided reason when engine only (all versions)" do
+        allow(RubyEngine).to receive(:is?).and_return(true)
+        expect(
+          described_class.new(:engine => "ruby", :reason => "custom reason").message,
+        ).to eq("custom reason")
+      end
+
+      it "uses provided reason when engine+versions matches" do
+        allow(RubyEngine).to receive(:is?).and_return(true)
+        allow(RubyVersion).to receive(:to_s).and_return("2.1.5")
+        expect(
+          described_class.new(:engine => "rbx", :versions => "2.1.5", :reason => "because turtles").message,
+        ).to eq("because turtles")
+      end
+
+      it "uses provided reason when no engine but versions match" do
+        allow(RubyVersion).to receive(:to_s).and_return("2.1.5")
+        expect(
+          described_class.new(:versions => ["2.1.5"], :reason => "no engine reason").message,
+        ).to eq("no engine reason")
+      end
+    end
+
+    context "with an unknown engine" do
+      it "warns about unrecognized engine" do
+        allow(RubyEngine).to receive(:is?).and_return(false)
+        expect { described_class.new(:engine => "schruby") }.
+          to output(/not known to rspec-pending_for/).to_stderr
+      end
+    end
+
+    context "with version matching fallback via Range#cover? and String ranges" do
+      before { allow(RubyEngine).to receive(:is?).and_return(nil) }
+
+      it "matches when String range covers current" do
+        allow(RubyVersion).to receive(:to_s).and_return("2.1.5")
+        b = described_class.new(:versions => [("2.1.0")..("2.1.9")])
+        expect(b.message).to include("Behavior is broken")
+      end
+
+      it "does not match when String range does not cover current" do
+        allow(RubyVersion).to receive(:to_s).and_return("2.1.5")
+        b = described_class.new(:versions => [("2.2.0")..("2.2.9")])
+        expect(b.message).to be_nil
+      end
+    end
+
+    context "when Gem::Version.new fails to parse the current version" do
+      it "handles unrecognized version spec objects by returning no match" do
+        allow(RubyVersion).to receive(:to_s).and_return("2.1.5")
+        expect(
+          described_class.new(:versions => [Object.new]).message,
+        ).to be_nil
+      end
+
+      it "does not match Gem::Version ranges when version is malformed" do
+        allow(RubyVersion).to receive(:to_s).and_return("9.1.17.0 (2.6.8)")
+        gv_range = Gem::Version.new("2.6.0")..Gem::Version.new("3.0.0")
+        b1 = described_class.new(:versions => [gv_range])
+        expect(b1.message).to be_nil
+      end
+
+      it "still matches integer major version ranges when version is malformed" do
+        allow(RubyVersion).to receive(:to_s).and_return("9.1.17.0 (2.6.8)")
+        b2 = described_class.new(:versions => [9..9])
+        expect(b2.message).to include("Behavior is broken")
+      end
+    end
+
+    context "with nil relevant_versions (coverage focused)" do
+      it "treats nil as no match via branch return" do
+        # Create a subclass that returns nil to exercise the nil branch
+        klass = Class.new(described_class) do
+          def relevant_versions
+            nil
+          end
+        end
+        allow(RubyVersion).to receive(:to_s).and_return("2.1.5")
+        b = klass.new # message computed via versions_include_current?
+        expect(b.message).to be_nil
+      end
+    end
   end
 end

@@ -2,9 +2,9 @@
 
 ## Supported Versions
 
-| Version    | Supported |
-|------------|-----------|
-| 0.1.latest | ✅         |
+| Version  | Supported |
+|----------|-----------|
+| 1.latest | ✅         |
 
 ## Security contact information
 
