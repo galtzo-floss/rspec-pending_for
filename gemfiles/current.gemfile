@@ -2,6 +2,7 @@
 
 source "https://rubygems.org"
 
+gem "erb"
 gem "mutex_m", ">= 0.2"
 gem "stringio", ">= 3.0"
 
