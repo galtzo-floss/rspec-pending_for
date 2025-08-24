@@ -233,7 +233,82 @@
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>pending configuration</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>options</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:engine</span>
+          <span class="type">(<tt>String</tt>, <tt>Symbol</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>&quot;ruby&quot;</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Ruby engine name to match, e.g. :ruby, :jruby, :truffleruby</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:versions</span>
+          <span class="type">(<tt>String</tt>, <tt>Array&lt;String,Range&gt;</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>A single version string or an Array of version specs. Each spec can be:</p>
+<ul>
+  <li>String: exact version match (e.g., “2.7.8”)</li>
+  <li>Range&lt;Gem::Version&gt;: inclusive/exclusive bounds respected (e.g., Gem::Version.new(“2.6.0”)…Gem::Version.new(“3.0.0”))</li>
+  <li>Range<Integer>: compares Ruby major version (e.g., 2..3). Inclusive/exclusive respected.
+JRuby/TruffleRuby are supported via RUBY_VERSION compatibility for Integer ranges and Gem::Version ranges.</Integer></li>
+</ul>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:reason</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Custom message to display when pending</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
 
 </div><table class="source_code">
   <tr>
@@ -241,12 +316,12 @@
       <pre class="lines">
 
 
-29
-30
-31</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/pending_for.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/pending_for.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pending_for'>pending_for</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_modify_example_with'>modify_example_with</span><span class='lparen'>(</span><span class='symbol'>:pending</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
@@ -281,7 +356,82 @@
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>skip configuration</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>options</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:engine</span>
+          <span class="type">(<tt>String</tt>, <tt>Symbol</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>&quot;ruby&quot;</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Ruby engine name to match, e.g. :ruby, :jruby, :truffleruby</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:versions</span>
+          <span class="type">(<tt>String</tt>, <tt>Array&lt;String,Range&gt;</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>A single version string or an Array of version specs. Each spec can be:</p>
+<ul>
+  <li>String: exact version match (e.g., “2.7.8”)</li>
+  <li>Range&lt;Gem::Version&gt;: inclusive/exclusive bounds respected (e.g., Gem::Version.new(“2.6.0”)…Gem::Version.new(“3.0.0”))</li>
+  <li>Range<Integer>: compares Ruby major version (e.g., 2..3). Inclusive/exclusive respected.
+JRuby/TruffleRuby are supported via RUBY_VERSION compatibility for Integer ranges and Gem::Version ranges.</Integer></li>
+</ul>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:reason</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Custom message to display when skipping</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
 
 </div><table class="source_code">
   <tr>
@@ -289,12 +439,12 @@
       <pre class="lines">
 
 
-41
-42
-43</pre>
+61
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/pending_for.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/pending_for.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_skip_for'>skip_for</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_modify_example_with'>modify_example_with</span><span class='lparen'>(</span><span class='symbol'>:skip</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
@@ -309,7 +459,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Aug 23 16:59:04 2025 by
+  Generated on Sun Aug 24 14:19:41 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-3.4.5).
 </div>
