@@ -59,6 +59,53 @@ module Rspec
 
       private
 
+      # Determine whether the current Ruby version matches any of the provided version specs.
+      # A version spec may be:
+      # - String: exact match against RubyVersion.to_s
+      # - Range[Gem::Version, Gem::Version]: inclusive/exclusive respected
+      # - Range[Integer, Integer]: compares major version from RubyVersion.to_s
+      def versions_include_current?
+        return false if relevant_versions.nil?
+
+        current_str = RubyVersion.to_s
+        current_major = current_str.to_s.split(".").first.to_i
+        current_gemv = begin
+          Gem::Version.new(current_str.to_s)
+        rescue StandardError
+          nil
+        end
+
+        relevant_versions.any? do |spec|
+          case spec
+          when String
+            spec == current_str
+          when Range
+            b = spec.begin
+            e = spec.end
+            if b.is_a?(Gem::Version) && e.is_a?(Gem::Version)
+              next false unless current_gemv
+              # Respect exclusive end
+              if spec.exclude_end?
+                b <= current_gemv && current_gemv < e
+              else
+                b <= current_gemv && current_gemv <= e
+              end
+            elsif b.is_a?(Integer) && e.is_a?(Integer)
+              if spec.exclude_end?
+                b <= current_major && current_major < e
+              else
+                b <= current_major && current_major <= e
+              end
+            else
+              # Fallback: try cover? with the string form (likely false if incomparable)
+              spec.respond_to?(:cover?) && spec.cover?(current_str)
+            end
+          else
+            false
+          end
+        end
+      end
+
       def warn_about_unrecognized_engine
         return false if relevant_engine.nil? || !INTERPRETER_MATRIX[relevant_engine].nil?
 
@@ -69,14 +116,14 @@ If it is a real RUBY_ENGINE, please report as a bug to #{ISSUES_LINK}
       end
 
       def no_engine_specified
-        reason || RELEVANT_VERSIONS_PROC.call(relevant_versions) if relevant_versions.include?(RubyVersion.to_s)
+        reason || RELEVANT_VERSIONS_PROC.call(relevant_versions) if versions_include_current?
       end
 
       def engine_specified_and_relevant
         if relevant_versions.empty?
           # No versions specified means ALL versions for this engine
           reason || "#{BROKEN_STRING} #{BUG_STRING} #{INTERPRETER_MATRIX[relevant_engine]}"
-        elsif relevant_versions.include?(RubyVersion.to_s)
+        elsif versions_include_current?
           reason || %[#{RELEVANT_VERSIONS_PROC.call(relevant_versions)} (#{INTERPRETER_MATRIX[relevant_engine]})]
         end
       end

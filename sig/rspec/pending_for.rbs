@@ -1,0 +1,7 @@
+module Rspec
+  module PendingFor
+    # Public API mixed into RSpec
+    def pending_for: (Hash[Symbol, untyped] options) -> untyped
+    def skip_for: (Hash[Symbol, untyped] options) -> untyped
+  end
+end

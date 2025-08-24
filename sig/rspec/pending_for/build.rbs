@@ -1,0 +1,17 @@
+module Rspec
+  module PendingFor
+    class Build
+      @message: String?
+      @relevant_versions: Array[untyped]
+      @relevant_engine: String?
+      @reason: String?
+
+      def initialize: (?Hash[Symbol, untyped] options) -> void
+      def message: () -> String?
+      def relevant_versions: () -> Array[untyped]
+      def relevant_engine: () -> String?
+      def reason: () -> String?
+      def current_matches_specified?: () -> bool
+    end
+  end
+end
