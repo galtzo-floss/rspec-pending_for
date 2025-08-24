@@ -19,8 +19,10 @@ Please file a bug if you notice a violation of semantic versioning.
 ## [Unreleased]
 ### Added
 ### Changed
-### Fixed
+### Deprecated
 ### Removed
+### Fixed
+### Security
 
 ## [0.1.7] - 2025-02-24 ([tag][1.0.0t])
 - COVERAGE:  98.44% -- 63/64 lines in 6 files

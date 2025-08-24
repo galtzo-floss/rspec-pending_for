@@ -1,10 +1,12 @@
+# coding: utf-8
 # frozen_string_literal: true
 
 gem_version =
-  if RUBY_VERSION >= "3.1"
+  if RUBY_VERSION >= "3.1" # rubocop:disable Gemspec/RubyVersionGlobalsUsage
     # Loading Version into an anonymous module allows version.rb to get code coverage from SimpleCov!
     # See: https://github.com/simplecov-ruby/simplecov/issues/557#issuecomment-2630782358
-    Module.new.tap { |mod| Kernel.load("lib/rspec/pending_for/version.rb", mod) }::Rspec::PendingFor::Version::VERSION
+    # See: https://github.com/panorama-ed/memo_wise/pull/397
+    Module.new.tap { |mod| Kernel.load("#{File.expand_path("../lib", __FILE__)}/rspec/pending_for/version.rb", mod) }::Rspec::PendingFor::Version::VERSION
   else
     # NOTE: Use __FILE__ until removal of Ruby 1.x support
     # __dir__ introduced in Ruby 1.9.1
@@ -18,8 +20,15 @@ gem_version =
 Gem::Specification.new do |spec|
   spec.name = "rspec-pending_for"
   spec.version = gem_version
-  spec.authors = ["Peter Boling"]
-  spec.email = ["peter.boling@gmail.com"]
+  spec.authors = ["Peter H. Boling"]
+  spec.email = ["floss@galtzo.com"]
+
+  spec.summary = "⏳️ Mark specs pending or skipped for specified Ruby versions or engines"
+  spec.description = "⏳️ Mark specs pending or skipped for specific Ruby engine (e.g. MRI or JRuby) & versions, or version ranges. " \
+    "Fund overlooked open source projects - bottom of stack, dev/test dependencies: floss-funding.dev"
+  spec.homepage = "https://github.com/galtzo-floss/rspec-pending_for"
+  spec.license = "MIT"
+  spec.required_ruby_version = ">= 1.8.7"
 
   # Linux distros often package gems and securely certify them independent
   #   of the official RubyGem certification process. Allowed via ENV["SKIP_GEM_SIGNING"]
@@ -39,14 +48,6 @@ Gem::Specification.new do |spec|
     end
   end
 
-  spec.summary = "Mark specs pending or skipped for specific Ruby engine (e.g. MRI or JRuby) / version combinations"
-  spec.description = <<-DESCRIPTION
-Mark specs pending or skipped for specific Ruby engine (e.g. MRI or JRuby) / version combinations
-  DESCRIPTION
-  spec.homepage = "https://github.com/galtzo-floss/#{spec.name}"
-  spec.license = "MIT"
-  spec.required_ruby_version = ">= 1.8.7"
-
   spec.metadata["homepage_uri"] = "https://#{spec.name.tr("_", "-")}.galtzo.com/"
   spec.metadata["source_code_uri"] = "#{spec.homepage}/tree/v#{spec.version}"
   spec.metadata["changelog_uri"] = "#{spec.homepage}/blob/v#{spec.version}/CHANGELOG.md"
@@ -60,35 +61,36 @@ Mark specs pending or skipped for specific Ruby engine (e.g. MRI or JRuby) / ver
 
   # Specify which files are part of each release.
   spec.files = Dir[
-    # Splats (alphabetical)
+    # Executables and tasks
     "lib/**/*.rb",
   ]
   # Automatically included with gem package, no need to list again in files.
   spec.extra_rdoc_files = Dir[
     # Files (alphabetical)
     "CHANGELOG.md",
+    "CITATION.cff",
     "CODE_OF_CONDUCT.md",
     "CONTRIBUTING.md",
     "LICENSE.txt",
     "README.md",
+    "REEK",
+    "RUBOCOP.md",
     "SECURITY.md",
   ]
   spec.rdoc_options += [
     "--title",
     "#{spec.name} - #{spec.summary}",
     "--main",
-    "CHANGELOG.md",
-    "CODE_OF_CONDUCT.md",
-    "CONTRIBUTING.md",
-    "LICENSE.txt",
     "README.md",
-    "SECURITY.md",
+    "--exclude",
+    "^sig/",
     "--line-numbers",
     "--inline-source",
     "--quiet",
   ]
   spec.require_paths = ["lib"]
   spec.bindir = "exe"
+  # files listed are relative paths from bindir above.
   spec.executables = []
 
   spec.add_dependency("rspec-core", "~> 3.0")
@@ -117,5 +119,6 @@ Mark specs pending or skipped for specific Ruby engine (e.g. MRI or JRuby) / ver
   spec.add_development_dependency("rspec_junit_formatter", "~> 0.6")    # Ruby >= 2.3.0, for GitLab Test Result Parsing
 
   # Development tasks
+  spec.add_development_dependency("kettle-dev", "~> 1.0", ">= 1.0.8")   # ruby >= 2.3
   spec.add_development_dependency("rake", "~> 13.0")                    # ruby >= 2.2
 end
