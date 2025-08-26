@@ -111,14 +111,8 @@ Gem::Specification.new do |spec|
   #       Development dependencies that require strictly newer Ruby versions should be in a "gemfile",
   #       and preferably a modular one (see gemfiles/modular/*.gemfile).
 
-  # Tests
-  spec.add_development_dependency("appraisal2", "~> 3.0")               # ruby >= 1.8.7
-  spec.add_development_dependency("minitest", "~> 5.3")                 # ruby >= 0
-  spec.add_development_dependency("rspec", "~> 3.13")                   # ruby >= 0
-  spec.add_development_dependency("rspec-block_is_expected", "~> 1.0")  # ruby >= 1.8.7
-  spec.add_development_dependency("rspec_junit_formatter", "~> 0.6")    # Ruby >= 2.3.0, for GitLab Test Result Parsing
-
   # Development tasks
-  spec.add_development_dependency("kettle-dev", "~> 1.0", ">= 1.0.8")   # ruby >= 2.3
+  spec.add_development_dependency("kettle-dev", "~> 1.0", ">= 1.0.10")  # ruby >= 2.3
+  spec.add_development_dependency("minitest", "~> 5.3")                 # ruby >= 0
   spec.add_development_dependency("rake", "~> 13.0")                    # ruby >= 2.2
 end
