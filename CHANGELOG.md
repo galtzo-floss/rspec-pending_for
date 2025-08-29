@@ -22,6 +22,7 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Deprecated
 ### Removed
 ### Fixed
+- truffleruby compatibility without warnings about typo in engine name
 ### Security
 
 ## [0.1.18] - 2025-02-24 ([tag][0.1.18t])

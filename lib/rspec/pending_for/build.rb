@@ -16,7 +16,7 @@ module Rspec
       # | "maglev"       | MagLev                   |
       # | "ironruby"     | IronRuby                 |
       # | "cardinal"     | Cardinal                 |
-      # | "truffletuby"  | Truffle Ruby             |
+      # | "truffleruby"  | Truffle Ruby             |
       #
 
       # Keys are the
@@ -30,12 +30,12 @@ module Rspec
         "maglev" => "MagLev",
         "ironruby" => "IronRuby",
         "cardinal" => "Cardinal",
-        "truffletuby" => "Truffle Ruby",
+        "truffleruby" => "Truffle Ruby",
       }.freeze
       BROKEN_STRING = "Behavior is broken"
       BUG_STRING = "due to a bug in the Ruby engine"
       VERSIONS_STRING = "in Ruby versions"
-      ISSUES_LINK = "https://github.com/pboling/rspec-pending_for/issues"
+      ISSUES_LINK = "https://github.com/galtzo-floss/rspec-pending_for/issues"
       RELEVANT_VERSIONS_PROC = lambda { |rv| "#{BROKEN_STRING} #{VERSIONS_STRING} #{rv} #{BUG_STRING}" }
 
       attr_reader :message, :relevant_versions, :relevant_engine, :reason
