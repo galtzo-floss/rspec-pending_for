@@ -19,6 +19,7 @@ Please file a bug if you notice a violation of semantic versioning.
 ## [Unreleased]
 ### Added
 ### Changed
+- issues link updated to new org home: galtzo-floss/rspec-pending_for
 ### Deprecated
 ### Removed
 ### Fixed
