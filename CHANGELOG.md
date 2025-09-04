@@ -19,6 +19,8 @@ Please file a bug if you notice a violation of semantic versioning.
 ## [Unreleased]
 ### Added
 - comprehensive documentation and examples in README.md
+- support minor version shorthand matching
+  - i.e., 3.2 will skip 3.2.8
 ### Changed
 - issues link updated to new org home: galtzo-floss/rspec-pending_for
 ### Deprecated
