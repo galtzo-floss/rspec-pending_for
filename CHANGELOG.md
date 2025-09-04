@@ -24,6 +24,7 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Deprecated
 ### Removed
 ### Fixed
+- fixed handling of version ranges in `skip_for`/`pending_for`
 - release date in changelog
 - truffleruby compatibility without warnings about typo in engine name
 ### Security

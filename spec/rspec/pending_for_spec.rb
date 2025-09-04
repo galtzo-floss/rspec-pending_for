@@ -178,6 +178,12 @@ RSpec.describe Rspec::PendingFor do
         expect(described_class.pending_for(:versions => [range])).to be_nil
       end
 
+      it "also supports passing a single Gem::Version range directly (not in an array)" do
+        range = Gem::Version.new("2.1.0")..Gem::Version.new("2.1.9")
+        expect(described_class).to receive(:pending)
+        expect(described_class.pending_for(:versions => range)).to be_nil
+      end
+
       it "does not call pending for Gem::Version exclusive range that excludes upper bound" do
         range = Gem::Version.new("2.1.0")...Gem::Version.new("2.1.5")
         expect(described_class).not_to receive(:pending)
@@ -223,6 +229,12 @@ RSpec.describe Rspec::PendingFor do
         expect(described_class.skip_for(:versions => [range])).to be_nil
       end
 
+      it "also supports passing a single Gem::Version range directly (not in an array)" do
+        range = Gem::Version.new("2.1.0")..Gem::Version.new("2.1.9")
+        expect(described_class).to receive(:skip)
+        expect(described_class.skip_for(:versions => range)).to be_nil
+      end
+
       it "does not call skip for Gem::Version exclusive range that excludes upper bound" do
         range = Gem::Version.new("2.1.0")...Gem::Version.new("2.1.5")
         expect(described_class).not_to receive(:skip)
@@ -233,6 +245,12 @@ RSpec.describe Rspec::PendingFor do
         range = 2..3
         expect(described_class).to receive(:skip)
         expect(described_class.skip_for(:versions => [range])).to be_nil
+      end
+
+      it "also supports passing a single Integer major range directly (not in an array)" do
+        range = 2..3
+        expect(described_class).to receive(:skip)
+        expect(described_class.skip_for(:versions => range)).to be_nil
       end
 
       it "does not call skip for Integer major version exclusive upper bound when current is excluded" do

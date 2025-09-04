@@ -41,7 +41,17 @@ module Rspec
       attr_reader :message, :relevant_versions, :relevant_engine, :reason
 
       def initialize(options = {})
-        @relevant_versions = Array(options[:versions]) # cast to array
+        # Normalize versions without enumerating ranges
+        raw_versions = options[:versions]
+        @relevant_versions = if raw_versions.nil?
+          []
+        elsif raw_versions.is_a?(Array)
+          raw_versions
+        elsif raw_versions.is_a?(Range)
+          [raw_versions]
+        else
+          [raw_versions]
+        end
         @relevant_engine = options[:engine].nil? ? nil : options[:engine].to_s
         @reason = options[:reason]
         warn_about_unrecognized_engine
