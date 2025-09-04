@@ -23,10 +23,11 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Deprecated
 ### Removed
 ### Fixed
+- release date in changelog
 - truffleruby compatibility without warnings about typo in engine name
 ### Security
 
-## [0.1.18] - 2025-02-24 ([tag][0.1.18t])
+## [0.1.18] - 2025-08-24 ([tag][0.1.18t])
 - TAG: [v0.1.8][0.1.18t]
 - COVERAGE: 100.00% -- 86/86 lines in 6 files
 - BRANCH COVERAGE: 100.00% -- 33/33 branches in 6 files
