@@ -197,6 +197,82 @@ it("blah is blah") do
 end
 ```
 
+### 📦 Specifying versions: supported forms and examples
+
+The :versions option accepts several forms. You can also omit :engine to match any engine. The library compares using RubyVersion and Gem::Version rules and supports MRI, JRuby, and TruffleRuby.
+
+Supported forms for :versions:
+- String: exact match to RUBY_VERSION, e.g., "3.2.4".
+- Array of strings or ranges: any entry that matches will trigger pending/skip.
+- Range of Gem::Version: inclusive/exclusive endpoints are respected.
+- Range of Integer: compares only the major version (e.g., 2..3 matches Ruby 2.x and 3.x depending on inclusive/exclusive).
+
+Notes:
+- If :engine is omitted, the version spec applies to whatever Ruby engine is running.
+- If :versions is omitted and :engine is provided, all versions for that engine are matched.
+- JRuby and TruffleRuby are matched using their RUBY_VERSION compatibility for Integer and Gem::Version ranges.
+- Strings must match the full version string exactly; there is no parsing of comparison operators like ">= 3.1".
+
+Examples
+
+1) Exact version string
+```ruby
+it "pend only on Ruby 3.2.4" do
+  pending_for(:engine => :ruby, :versions => "3.2.4")
+  # ...
+end
+```
+
+2) Multiple exact versions
+```ruby
+it "pend on a set of MRI versions" do
+  pending_for(:engine => :ruby, :versions => %w[2.7.10 3.0.7 3.1.6])
+end
+```
+
+3) Match any engine by version (no :engine)
+```ruby
+it "skip on any engine if the Ruby version equals 2.7.8" do
+  skip_for(:versions => "2.7.8", :reason => "Known upstream incompatibility on this patch release")
+end
+```
+
+4) Range of Gem::Version (inclusive)
+```ruby
+it "pend for MRI >= 2.6.0 and <= 3.0.0" do
+  pending_for(
+    :engine => :ruby,
+    :versions => (Gem::Version.new("2.6.0")..Gem::Version.new("3.0.0"))
+  )
+end
+```
+
+5) Range of Gem::Version (exclusive end)
+```ruby
+it "skip for MRI >= 3.1.0 and < 3.3.0" do
+  skip_for(
+    :engine => :ruby,
+    :versions => (Gem::Version.new("3.1.0")...Gem::Version.new("3.3.0"))
+  )
+end
+```
+
+6) Range of Integer (major versions)
+```ruby
+it "pend on all Ruby 2.x and 3.x" do
+  pending_for(:versions => (2..3), :reason => "Major series currently affected")
+end
+
+it "skip on Ruby 2.x but not 3.x" do
+  skip_for(:versions => (2...3)) # 2 <= version < 3
+end
+```
+
+Edge cases and tips
+- If you pass a mismatched Range (e.g., begin/end types differ), the library will attempt cover? with string comparison, which typically won’t match; prefer the supported forms above.
+- Provide :reason to override the default message in your reports.
+- Engines recognized include: "ruby" (MRI), "jruby", "truffleruby", plus historical ones like "rbx". Unknown engines will emit a warning.
+
 ### Environment Variables
 
 Below are the primary environment variables recognized by rspec-pending_for (and its integrated tools). Unless otherwise noted, set boolean values to the string "true" to enable.
