@@ -273,6 +273,36 @@ Edge cases and tips
 - Provide :reason to override the default message in your reports.
 - Engines recognized include: "ruby" (MRI), "jruby", "truffleruby", plus historical ones like "rbx". Unknown engines will emit a warning.
 
+### Using with RSpec tags
+
+rspec-pending_for plays nicely with RSpec metadata tags. You can auto-skip or auto-pend examples based on tags via a before hook. This example also demonstrates the array form for :versions using %w[]:
+
+```ruby
+require "rspec/pending_for"
+
+RSpec.configure do |config|
+  config.include Rspec::PendingFor
+
+  # Auto-skip examples that require Bundler >= 2.7 (which implies Ruby >= 3.2)
+  config.before(:each, :bundler_27_only) do
+    # Skip on Ruby < 3.2 using rspec-pending_for's version matcher
+    skip_for(:reason => "Requires Bundler >= 2.7 which is unavailable on Ruby < 3.2",
+             :versions => %w[2.3 2.4 2.5 2.6 2.7 3.0 3.1])
+  end
+end
+
+RSpec.describe "something" do
+  it "runs only where Bundler 2.7+ is available", :bundler_27_only do
+    # ... your example code ...
+  end
+end
+```
+
+Notes:
+- The tag :bundler_27_only can be applied to individual examples or groups.
+- The versions array is matched against RUBY_VERSION (e.g., 3.1.x) when :engine is omitted.
+- Use :reason to make the report message explicit.
+
 ### Environment Variables
 
 Below are the primary environment variables recognized by rspec-pending_for (and its integrated tools). Unless otherwise noted, set boolean values to the string "true" to enable.
