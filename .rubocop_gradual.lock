@@ -2,7 +2,7 @@
   "bin/bundle:247448467": [
     [64, 5, 20, "ThreadSafety/ClassInstanceVariable: Avoid class instance variables.", 2485198147]
   ],
-  "lib/rspec/pending_for/build.rb:2583233463": [
+  "lib/rspec/pending_for/build.rb:760912462": [
     [107, 17, 38, "Style/ComparableBetween: Prefer `current_gemv.between?(b, e)` over logical comparison.", 2223453186],
     [113, 17, 40, "Style/ComparableBetween: Prefer `current_major.between?(b, e)` over logical comparison.", 1125480098]
   ],
