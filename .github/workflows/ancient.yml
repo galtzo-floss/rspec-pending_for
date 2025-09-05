@@ -1,9 +1,13 @@
 name: MRI 2.3, 2.4, 2.5 (EOL)
 
+permissions:
+  contents: read
+
 on:
   push:
     branches:
       - 'main'
+      - '*-stable'
     tags:
       - '!*' # Do not execute on tags
   pull_request:
@@ -68,7 +72,7 @@ jobs:
 
       # Raw `bundle` will use the BUNDLE_GEMFILE set to matrix.gemfile (i.e. Appraisal.root)
       # We need to do this first to get appraisal installed.
-      # NOTE: This does not use the main Gemfile at all.
+      # NOTE: This does not use the primary Gemfile at all.
       - name: Install Root Appraisal
         run: bundle
       - name: Appraisal for ${{ matrix.appraisal }}

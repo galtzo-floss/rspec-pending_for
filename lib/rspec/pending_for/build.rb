@@ -41,7 +41,17 @@ module Rspec
       attr_reader :message, :relevant_versions, :relevant_engine, :reason
 
       def initialize(options = {})
-        @relevant_versions = Array(options[:versions]) # cast to array
+        # Normalize versions without enumerating ranges
+        raw_versions = options[:versions]
+        @relevant_versions = if raw_versions.nil?
+          []
+        elsif raw_versions.is_a?(Array)
+          raw_versions
+        elsif raw_versions.is_a?(Range)
+          [raw_versions]
+        else
+          [raw_versions]
+        end
         @relevant_engine = options[:engine].nil? ? nil : options[:engine].to_s
         @reason = options[:reason]
         warn_about_unrecognized_engine
@@ -78,7 +88,13 @@ module Rspec
         relevant_versions.any? do |spec|
           case spec
           when String
-            spec == current_str
+            # Support minor-version shorthand like "3.1" to match any 3.1.x
+            if spec.to_s =~ /^\d+\.\d+$/
+              current_major_minor = current_str.to_s.split(".")[0, 2].join(".")
+              spec == current_major_minor
+            else
+              spec == current_str
+            end
           when Range
             b = spec.begin
             e = spec.end

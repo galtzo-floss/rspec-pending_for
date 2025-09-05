@@ -27,7 +27,7 @@ on:
   push:
     branches:
       - 'main'
-      - "*-stable"
+      - '*-stable'
     tags:
       - '!*' # Do not execute on tags
   pull_request:
@@ -75,7 +75,7 @@ jobs:
 
       # Raw `bundle` will use the BUNDLE_GEMFILE set to matrix.gemfile (i.e. Appraisal.root)
       # We need to do this first to get appraisal installed.
-      # NOTE: This does not use the main Gemfile at all.
+      # NOTE: This does not use the primary Gemfile at all.
       - name: Install Root Appraisal
         run: bundle
       - name: Appraisal for ${{ matrix.ruby }}@${{ matrix.appraisal_name }}

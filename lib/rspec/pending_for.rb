@@ -29,8 +29,8 @@ module Rspec
     #
     # @param options [Hash] pending configuration
     # @option options [String,Symbol] :engine ("ruby") Ruby engine name to match, e.g. :ruby, :jruby, :truffleruby
-    # @option options [String,Array<String,Range>] :versions
-    #   A single version string or an Array of version specs. Each spec can be:
+    # @option options [String,Range,Array<String,Range>] :versions
+    #   A single version string or range, or an Array of version specs. Each spec can be:
     #   - String: exact version match (e.g., "2.7.8")
     #   - Range<Gem::Version>: inclusive/exclusive bounds respected (e.g., Gem::Version.new("2.6.0")...Gem::Version.new("3.0.0"))
     #   - Range<Integer>: compares Ruby major version (e.g., 2..3). Inclusive/exclusive respected.
@@ -51,8 +51,8 @@ module Rspec
     #
     # @param options [Hash] skip configuration
     # @option options [String,Symbol] :engine ("ruby") Ruby engine name to match, e.g. :ruby, :jruby, :truffleruby
-    # @option options [String,Array<String,Range>] :versions
-    #   A single version string or an Array of version specs. Each spec can be:
+    # @option options [String,Range,Array<String,Range>] :versions
+    #   A single version string or range, or an Array of version specs. Each spec can be:
     #   - String: exact version match (e.g., "2.7.8")
     #   - Range<Gem::Version>: inclusive/exclusive bounds respected (e.g., Gem::Version.new("2.6.0")...Gem::Version.new("3.0.0"))
     #   - Range<Integer>: compares Ruby major version (e.g., 2..3). Inclusive/exclusive respected.

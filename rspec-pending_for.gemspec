@@ -6,12 +6,12 @@ gem_version =
     # Loading Version into an anonymous module allows version.rb to get code coverage from SimpleCov!
     # See: https://github.com/simplecov-ruby/simplecov/issues/557#issuecomment-2630782358
     # See: https://github.com/panorama-ed/memo_wise/pull/397
-    Module.new.tap { |mod| Kernel.load("#{File.expand_path("../lib", __FILE__)}/rspec/pending_for/version.rb", mod) }::Rspec::PendingFor::Version::VERSION
+    Module.new.tap { |mod| Kernel.load("#{__dir__}/lib/rspec/pending_for/version.rb", mod) }::Rspec::PendingFor::Version::VERSION
   else
-    # NOTE: Use __FILE__ until removal of Ruby 1.x support
+    # NOTE: Use __FILE__ or __dir__ until removal of Ruby 1.x support
     # __dir__ introduced in Ruby 1.9.1
-    # lib = File.expand_path("lib", __dir__)
-    lib = File.expand_path("../lib", __FILE__)
+    # lib = File.expand_path("../lib", __FILE__)
+    lib = File.expand_path("lib", __dir__)
     $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
     require "rspec/pending_for/version"
     Rspec::PendingFor::Version::VERSION
@@ -24,15 +24,14 @@ Gem::Specification.new do |spec|
   spec.email = ["floss@galtzo.com"]
 
   spec.summary = "⏳️ Mark specs pending or skipped for specified Ruby versions or engines"
-  spec.description = "⏳️ Mark specs pending or skipped for specific Ruby engine (e.g. MRI or JRuby) & versions, or version ranges. " \
-    "Fund overlooked open source projects - bottom of stack, dev/test dependencies: floss-funding.dev"
+  spec.description = "⏳️ Mark specs pending or skipped for specific Ruby engine (e.g. MRI or JRuby) & versions, or version ranges. Fund overlooked open source projects - bottom of stack, dev/test dependencies: floss-funding.dev"
   spec.homepage = "https://github.com/galtzo-floss/rspec-pending_for"
-  spec.license = "MIT"
+  spec.licenses = ["MIT"]
   spec.required_ruby_version = ">= 1.8.7"
 
   # Linux distros often package gems and securely certify them independent
   #   of the official RubyGem certification process. Allowed via ENV["SKIP_GEM_SIGNING"]
-  # Ref: https://gitlab.com/oauth-xx/version_gem/-/issues/3
+  # Ref: https://gitlab.com/ruby-oauth/version_gem/-/issues/3
   # Hence, only enable signing if `SKIP_GEM_SIGNING` is not set in ENV.
   # See CONTRIBUTING.md
   unless ENV.include?("SKIP_GEM_SIGNING")
@@ -59,11 +58,16 @@ Gem::Specification.new do |spec|
   spec.metadata["discord_uri"] = "https://discord.gg/3qme4XHNKN"
   spec.metadata["rubygems_mfa_required"] = "true"
 
-  # Specify which files are part of each release.
+  # Specify which files are part of the released package.
   spec.files = Dir[
     # Executables and tasks
+    "exe/*",
     "lib/**/*.rb",
+    "lib/**/*.rake",
+    # Signatures
+    "sig/**/*.rbs",
   ]
+
   # Automatically included with gem package, no need to list again in files.
   spec.extra_rdoc_files = Dir[
     # Files (alphabetical)
@@ -71,6 +75,7 @@ Gem::Specification.new do |spec|
     "CITATION.cff",
     "CODE_OF_CONDUCT.md",
     "CONTRIBUTING.md",
+    "FUNDING.md",
     "LICENSE.txt",
     "README.md",
     "REEK",
@@ -93,6 +98,9 @@ Gem::Specification.new do |spec|
   # files listed are relative paths from bindir above.
   spec.executables = []
 
+  # Utilities
+  spec.add_dependency("version_gem", "~> 1.1", ">= 1.1.8")              # ruby >= 2.2.0
+
   spec.add_dependency("rspec-core", "~> 3.0")
   spec.add_dependency("ruby_engine", "~> 2.0")
   spec.add_dependency("ruby_version", "~> 1.0")
@@ -101,8 +109,8 @@ Gem::Specification.new do |spec|
   #       visibility and discoverability on RubyGems.org.
   #       However, development dependencies in gemspec will install on
   #       all versions of Ruby that will run in CI.
-  #       This gem, and its runtime dependencies, will install on Ruby down to 1.8.7.
-  #       This gem, and its development dependencies, will install on Ruby down to 2.3.x.
+  #       This gem, and its gemspec runtime dependencies, will install on Ruby down to 2.3.x.
+  #       This gem, and its gemspec development dependencies, will install on Ruby down to 2.3.x.
   #       This is because in CI easy installation of Ruby, via setup-ruby, is for >= 2.3.
   #       Thus, dev dependencies in gemspec must have
   #
@@ -111,8 +119,52 @@ Gem::Specification.new do |spec|
   #       Development dependencies that require strictly newer Ruby versions should be in a "gemfile",
   #       and preferably a modular one (see gemfiles/modular/*.gemfile).
 
+  # Dev, Test, & Release Tasks
+  spec.add_development_dependency("kettle-dev", "~> 1.0")            # ruby >= 2.3.0
+
+  # Security
+  spec.add_development_dependency("bundler-audit", "~> 0.9.2")                      # ruby >= 2.0.0
+
+  # Tasks
+  spec.add_development_dependency("rake", "~> 13.0")                                # ruby >= 2.2.0
+
+  # Debugging
+  spec.add_development_dependency("require_bench", "~> 1.0", ">= 1.0.4")            # ruby >= 2.2.0
+
+  # Testing
+  spec.add_development_dependency("appraisal2", "~> 3.0")                           # ruby >= 1.8.7, for testing against multiple versions of dependencies
+  spec.add_development_dependency("kettle-test", "~> 1.0")                          # ruby >= 2.3
+  spec.add_development_dependency("rspec-pending_for", "~> 0.0", ">= 0.0.17")       # ruby >= 2.3, used to skip specs on incompatible Rubies
+
+  # Releasing
+  spec.add_development_dependency("ruby-progressbar", "~> 1.13")                    # ruby >= 0
+  spec.add_development_dependency("stone_checksums", "~> 1.0", ">= 1.0.2")          # ruby >= 2.2.0
+
+  # Git integration (optional)
+  # The 'git' gem is optional; rspec-pending_for falls back to shelling out to `git` if it is not present.
+  # The current release of the git gem depends on activesupport, which makes it too heavy to depend on directly
+  # spec.add_dependency("git", ">= 1.19.1")                               # ruby >= 2.3
+
   # Development tasks
-  spec.add_development_dependency("kettle-dev", "~> 1.0", ">= 1.0.10")  # ruby >= 2.3
-  spec.add_development_dependency("minitest", "~> 5.3")                 # ruby >= 0
-  spec.add_development_dependency("rake", "~> 13.0")                    # ruby >= 2.2
+  # The cake is a lie. erb v2.2, the oldest release on RubyGems.org, was never compatible with Ruby 2.3.
+  # This means we have no choice but to use the erb that shipped with Ruby 2.3
+  # /opt/hostedtoolcache/Ruby/2.3.8/x64/lib/ruby/gems/2.3.0/gems/erb-2.2.2/lib/erb.rb:670:in `prepare_trim_mode': undefined method `match?' for "-":String (NoMethodError)
+  # spec.add_development_dependency("erb", ">= 2.2")                                  # ruby >= 2.3.0, not SemVer, old rubies get dropped in a patch.
+  spec.add_development_dependency("gitmoji-regex", "~> 1.0", ">= 1.0.3")            # ruby >= 2.3.0
+
+  # HTTP recording for deterministic specs
+  # It seems that somehow just having a newer version of appraisal installed breaks
+  #   Ruby 2.3 and 2.4 even if their bundle specifies an older version,
+  #   and as a result it can only be a dependency in the appraisals.
+  # | An error occurred while loading spec_helper.
+  # | Failure/Error: require "vcr"
+  # |
+  # | NoMethodError:
+  # |   undefined method `delete_prefix' for "CONTENT_LENGTH":String
+  # | # ./spec/config/vcr.rb:3:in `require'
+  # | # ./spec/config/vcr.rb:3:in `<top (required)>'
+  # | # ./spec/spec_helper.rb:8:in `require_relative'
+  # | # ./spec/spec_helper.rb:8:in `<top (required)>'
+  # spec.add_development_dependency("vcr", ">= 4")                      # 6.0 claims to support ruby >= 2.3, but fails on ruby 2.4
+  # spec.add_development_dependency("webmock", ">= 3")               # Last version to support ruby >= 2.3
 end

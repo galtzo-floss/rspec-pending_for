@@ -12,9 +12,9 @@ authors:
     orcid: 'https://orcid.org/0009-0008-8519-441X'
 identifiers:
   - type: url
-    value: 'https://github.com/galtzo-floss/rspec-pending_for/'
+    value: 'https://github.com/galtzo-floss/rspec-pending_for'
     description: rspec-pending_for
-repository-code: 'https://github.com/galtzo-floss/rspec-pending_for/'
+repository-code: 'https://github.com/galtzo-floss/rspec-pending_for'
 abstract: >-
   rspec-pending_for
 license: See license file
