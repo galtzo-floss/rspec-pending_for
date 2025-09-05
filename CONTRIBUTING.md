@@ -1,12 +1,12 @@
 # Contributing
 
-Bug reports and pull requests are welcome on GitHub, CodeBerg, or [GitLab][🚎src-main].
+Bug reports and pull requests are welcome on [CodeBerg][📜src-cb], [GitLab][📜src-gl], or [GitHub][📜src-gh].
 This project should be a safe, welcoming space for collaboration, so contributors agree to adhere to
 the [code of conduct][🤝conduct].
 
 To submit a patch, please fork the project, create a patch with tests, and send a pull request.
 
-Remember to [![Keep A Changelog][📗keep-changelog-img]][📗keep-changelog].
+Remember to [![Keep A Changelog][📗keep-changelog-img]][📗keep-changelog] if you make changes.
 
 ## Help out!
 
@@ -22,16 +22,52 @@ Follow these instructions:
 6. Make sure to add tests for it. This is important, so it doesn't break in a future release.
 7. Create new Pull Request.
 
+## Environment Variables for Local Development
+
+Below are the primary environment variables recognized by stone_checksums (and its integrated tools). Unless otherwise noted, set boolean values to the string "true" to enable.
+
+General/runtime
+- DEBUG: Enable extra internal logging for this library (default: false)
+- REQUIRE_BENCH: Enable `require_bench` to profile requires (default: false)
+- CI: When set to true, adjusts default rake tasks toward CI behavior
+
+Coverage (kettle-soup-cover / SimpleCov)
+- K_SOUP_COV_DO: Enable coverage collection (default: true in .envrc)
+- K_SOUP_COV_FORMATTERS: Comma-separated list of formatters (html, xml, rcov, lcov, json, tty)
+- K_SOUP_COV_MIN_LINE: Minimum line coverage threshold (integer, e.g., 100)
+- K_SOUP_COV_MIN_BRANCH: Minimum branch coverage threshold (integer, e.g., 100)
+- K_SOUP_COV_MIN_HARD: Fail the run if thresholds are not met (true/false)
+- K_SOUP_COV_MULTI_FORMATTERS: Enable multiple formatters at once (true/false)
+- K_SOUP_COV_OPEN_BIN: Path to browser opener for HTML (empty disables auto-open)
+- MAX_ROWS: Limit console output rows for simplecov-console (e.g., 1)
+  Tip: When running a single spec file locally, you may want `K_SOUP_COV_MIN_HARD=false` to avoid failing thresholds for a partial run.
+
+GitHub API and CI helpers
+- GITHUB_TOKEN or GH_TOKEN: Token used by `ci:act` and release workflow checks to query GitHub Actions status at higher rate limits
+
+Releasing and signing
+- SKIP_GEM_SIGNING: If set, skip gem signing during build/release
+- GEM_CERT_USER: Username for selecting your public cert in `certs/<USER>.pem` (defaults to $USER)
+- SOURCE_DATE_EPOCH: Reproducible build timestamp. `kettle-release` will set this automatically for the session.
+
+Git hooks and commit message helpers (exe/kettle-commit-msg)
+- GIT_HOOK_BRANCH_VALIDATE: Branch name validation mode (e.g., `jira`) or `false` to disable
+- GIT_HOOK_FOOTER_APPEND: Append a footer to commit messages when goalie allows (true/false)
+- GIT_HOOK_FOOTER_SENTINEL: Required when footer append is enabled — a unique first-line sentinel to prevent duplicates
+- GIT_HOOK_FOOTER_APPEND_DEBUG: Extra debug output in the footer template (true/false)
+
+For a quick starting point, this repository’s `.envrc` shows sane defaults, and `.env.local` can override them locally.
+
 ## Appraisals
 
-From time to time the Appraisal2 gemfiles in `gemfiles/` will need to be updated.
+From time to time the [appraisal2][🚎appraisal2] gemfiles in `gemfiles/` will need to be updated.
 They are created and updated with the commands:
 
 ```console
 bin/rake appraisal:update
 ```
 
-When adding an appraisal to CI check the [runner tool cache][🏃‍♂️runner-tool-cache] to see which runner to use.
+When adding an appraisal to CI, check the [runner tool cache][🏃‍♂️runner-tool-cache] to see which runner to use.
 
 ## The Reek List
 
@@ -50,6 +86,13 @@ To run all tests
 ```console
 bundle exec rake test
 ```
+
+### Spec organization (required)
+
+- One spec file per class/module. For each class or module under `lib/`, keep all of its unit tests in a single spec file under `spec/` that mirrors the path and file name exactly: `lib/rspec/pending_for/release_cli.rb` -> `spec/rspec/pending_for/release_cli_spec.rb`.
+- Never add a second spec file for the same class/module. Examples of disallowed names: `*_more_spec.rb`, `*_extra_spec.rb`, `*_status_spec.rb`, or any other suffix that still targets the same class. If you find yourself wanting a second file, merge those examples into the canonical spec file for that class/module.
+- Exception: Integration specs that intentionally span multiple classes. Place these under `spec/integration/` (or a clearly named integration folder), and do not directly mirror a single class. Name them after the scenario, not a class.
+- Migration note: If a duplicate spec file exists, move all examples into the canonical file and delete the duplicate. Do not leave stubs or empty files behind.
 
 ## Lint It
 
@@ -92,19 +135,21 @@ Also see GitLab Contributors: [https://gitlab.com/galtzo-floss/rspec-pending_for
 
 ### One-time, Per-maintainer, Setup
 
-**IMPORTANT**: If you want to sign the build you create,
-your public key for signing gems will need to be picked up by the line in the
+**IMPORTANT**: To sign a build,
+a public key for signing gems will need to be picked up by the line in the
 `gemspec` defining the `spec.cert_chain` (check the relevant ENV variables there).
-All releases to RubyGems.org will be signed.
+All releases to RubyGems.org are signed releases.
 See: [RubyGems Security Guide][🔒️rubygems-security-guide]
 
-NOTE: To build without signing the gem you must set `SKIP_GEM_SIGNING` to some value in your environment.
+NOTE: To build without signing the gem set `SKIP_GEM_SIGNING` to any value in the environment.
 
 ### To release a new version:
 
 #### Automated process
 
-Run `kettle-release`.
+1. Update version.rb to contian the correct version-to-be-released.
+2. Run `bundle exec kettle-changelog`.
+3. Run `bundle exec kettle-release`.
 
 #### Manual process
 
@@ -133,7 +178,9 @@ Run `kettle-release`.
 13. Run `bundle exec rake release` which will create a git tag for the version,
     push git commits and tags, and push the `.gem` file to [rubygems.org][💎rubygems]
 
-[🚎src-main]: https://gitlab.com/galtzo-floss/rspec-pending_for
+[📜src-gl]: https://gitlab.com/galtzo-floss/rspec-pending_for/
+[📜src-cb]: https://codeberg.org/galtzo-floss/rspec-pending_for
+[📜src-gh]: https://github.com/galtzo-floss/rspec-pending_for
 [🧪build]: https://github.com/galtzo-floss/rspec-pending_for/actions
 [🤝conduct]: https://gitlab.com/galtzo-floss/rspec-pending_for/-/blob/main/CODE_OF_CONDUCT.md
 [🖐contrib-rocks]: https://contrib.rocks
@@ -149,4 +196,5 @@ Run `kettle-release`.
 [📗keep-changelog-img]: https://img.shields.io/badge/keep--a--changelog-1.0.0-FFDD67.svg?style=flat
 [📌semver-breaking]: https://github.com/semver/semver/issues/716#issuecomment-869336139
 [📌major-versions-not-sacred]: https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html
+[🚎appraisal2]: https://github.com/appraisal-rb/appraisal2
 [🏃‍♂️runner-tool-cache]: https://github.com/ruby/ruby-builder/releases/tag/toolcache

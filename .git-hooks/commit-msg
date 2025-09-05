@@ -1,10 +1,12 @@
 #!/usr/bin/env ruby
 # vim: set syntax=ruby
 
-ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../Gemfile", __dir__)
-
-require "rubygems"
-require "bundler/setup"
+# Do not rely on Bundler; allow running outside a Bundler context
+begin
+  require "rubygems"
+rescue LoadError
+  # continue
+end
 
 begin
   # External gems
@@ -41,5 +43,5 @@ EOM
     exit 1
   end
 rescue LoadError => e
-  warn("gitmoji-regex gem not found: #{e.class}: #{e.message}.\n\tEnsure it is part of the bundle and run bundle install.\n\tSkipping gitmoji check.")
+  warn("gitmoji-regex gem not found: #{e.class}: #{e.message}.\n\tInstall the 'gitmoji-regex' gem to enable this check.\n\tSkipping gitmoji check.")
 end

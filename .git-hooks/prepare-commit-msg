@@ -6,27 +6,12 @@ set -eu
 # Determine project root as the parent directory of this hook script
 PROJECT_ROOT="$(CDPATH= cd -- "$(dirname -- "$0")"/.. && pwd)"
 
-# Handle errors
-handle_error() {
-  local exit_code=$?      # Get the exit code of the failed command
-  local line_number=$LINENO # Get the line number where the error occurred
-  local command_failed=$BASH_COMMAND # Get the command that failed
-
-  echo "Error: Command '$command_failed' failed on line $line_number with exit code $exit_code."
-
-  exit 0 # succeed regardless, this script should not result in a failure of the commit
-}
-
-# Set the trap to call handle_error function on EXIT signal
-trap 'handle_error' EXIT
-
 # Run the Ruby hook within the direnv context (if available),
 # so ENV from .envrc/.env.local at project root is loaded.
 # One of the things .envrc needs to do is add $PROJECT_ROOT/bin/ to the path.
 # You should have this line at the top of .envrc
 #   PATH_add bin
-# NOTE: this project needs to also add exe as well,
-#       but other libraries won't generally need to do that.
+# NOTE: If this project ships exe scripts it should also add that.
 if command -v direnv >/dev/null 2>&1; then
   exec direnv exec "$PROJECT_ROOT" "kettle-commit-msg" "$@"
 else

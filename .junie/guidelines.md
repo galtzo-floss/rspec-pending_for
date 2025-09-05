@@ -57,7 +57,8 @@ This document captures project-specific knowledge to streamline setup, testing, 
     - When adding new code or modifying existing code always add tests to cover the updated behavior, including branches, and different types of expected and unexpected inputs.
   - Additional test utilities:
     - rspec-stubbed_env: Use stub_env to control ENV safely within examples.
-    - timecop-rspec: Time manipulation available, see lib/kettle/test/config/int/rspec/timecop_rspec.
+    - timecop-rspec: Time manipulation is available, and is setup by kettle-test.
+      - To freeze time use `freeze: Time.new(*args)` tag on an example or group
 - Running tests (verified)
   - Full suite (recommended to satisfy coverage thresholds):
     - bin/rspec
@@ -120,13 +121,15 @@ This document captures project-specific knowledge to streamline setup, testing, 
 
 Quick start
 1) bundle install
-2) K_SOUP_COV_FORMATTERS="xml,rcov,lcov,json" bin/rspec (generates coverage reports in coverage/ in the specified formats, only choose the formats you need)
-3) Optional local HTML coverage report: K_SOUP_COV_FORMATTERS="html" bin/rspec (generates HTML coverage report in coverage/ - but this is too verbose for AI, so Junie should use one of the more terse formats, like rcov, lcov, or json)
-4) Static analysis: bundle exec rake rubocop_gradual:check && bundle exec rake reek
+2) K_SOUP_COV_FORMATTERS="json" bin/rspec (generates a JSON coverage report with both line and branch data in coverage/. Use this single format.)
+3) Static analysis: bundle exec rake rubocop_gradual:check && bundle exec rake reek
 
 Notes
 - ALWAYS Run bundle exec rake rubocop_gradual:autocorrect as the final step before completing a task, to lint and autocorrect any remaining issues. Then if there are new lint failures, attempt to correct them manually.
 - NEVER run vanilla rubocop, as it won't handle the linting config properly. Always run rubocop_gradual:autocorrect or rubocop_gradual.
 - Running only a subset of specs is supported but in order to bypass the hard failure due to coverage thresholds, you need to run with K_SOUP_COV_MIN_HARD=false.
 - When adding code that writes to STDOUT, remember most specs silence output unless tagged with :check_output or DEBUG=true.
+- Completion criteria after changes: Only consider your change “done” when the relevant examples pass, as verified by .rspec_status. Do not rely on STDOUT impressions; consult .rspec_status (and example IDs) to confirm green results for the affected files/examples. If you ran a subset, re-run the full suite before finalizing to restore coverage thresholds.
+- Coverage reports: NEVER review the HTML report. Use JSON (preferred), XML, LCOV, or RCOV. For this project, always run tests with K_SOUP_COV_FORMATTERS set to "json".
+- Do NOT modify .envrc in tasks; when running tests locally or in scripts, manually prefix each run, e.g.: K_SOUP_COV_FORMATTERS="json" bin/rspec
 - For all the kettle-soup-cover options, see .envrc and find the K_SOUP_COV_* env vars.

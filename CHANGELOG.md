@@ -23,6 +23,7 @@ Please file a bug if you notice a violation of semantic versioning.
   - i.e., 3.2 will skip 3.2.8
 ### Changed
 - issues link updated to new org home: galtzo-floss/rspec-pending_for
+- upgrade to kettle-dev v1.1.5 template
 ### Deprecated
 ### Removed
 ### Fixed
@@ -31,7 +32,7 @@ Please file a bug if you notice a violation of semantic versioning.
 - truffleruby compatibility without warnings about typo in engine name
 ### Security
 
-## [0.1.18] - 2025-08-24 ([tag][0.1.18t])
+## [0.1.18] - 2025-08-24
 - TAG: [v0.1.8][0.1.18t]
 - COVERAGE: 100.00% -- 86/86 lines in 6 files
 - BRANCH COVERAGE: 100.00% -- 33/33 branches in 6 files
@@ -39,7 +40,7 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Added
 - Versions can now be ranges!
 
-## [0.1.17] - 2025-02-24 ([tag][0.1.17t])
+## [0.1.17] - 2025-02-24
 - TAG: [v0.1.7][0.1.17t]
 - COVERAGE:  98.44% -- 63/64 lines in 6 files
 - BRANCH COVERAGE:  94.44% -- 17/18 branches in 6 files
