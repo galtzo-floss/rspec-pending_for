@@ -89,7 +89,7 @@ module Rspec
           case spec
           when String
             # Support minor-version shorthand like "3.1" to match any 3.1.x
-            if spec.match?(/^\d+\.\d+$/)
+            if spec.to_s =~ /^\d+\.\d+$/
               current_major_minor = current_str.to_s.split(".")[0, 2].join(".")
               spec == current_major_minor
             else
