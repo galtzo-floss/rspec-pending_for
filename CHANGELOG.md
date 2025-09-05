@@ -18,19 +18,28 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ## [Unreleased]
 ### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+## [0.1.19] - 2025-09-05
+- TAG: [v0.1.19][0.1.19t]
+- COVERAGE: 100.00% -- 96/96 lines in 6 files
+- BRANCH COVERAGE: 100.00% -- 41/41 branches in 6 files
+- 63.64% documented
+### Added
 - comprehensive documentation and examples in README.md
 - support minor version shorthand matching
   - i.e., 3.2 will skip 3.2.8
 ### Changed
 - issues link updated to new org home: galtzo-floss/rspec-pending_for
 - upgrade to kettle-dev v1.1.5 template
-### Deprecated
-### Removed
 ### Fixed
 - fixed handling of version ranges in `skip_for`/`pending_for`
 - release date in changelog
 - truffleruby compatibility without warnings about typo in engine name
-### Security
 
 ## [0.1.18] - 2025-08-24
 - TAG: [v0.1.8][0.1.18t]
@@ -51,7 +60,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - Compatibility with truffleruby (maybe? not able to run it in CI yet)
 - Fixed compatibility with Ruby < 2
 
-[Unreleased]: https://github.com/pboling/rspec-pending_for/compare/v0.1.18...HEAD
+[Unreleased]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.19...HEAD
+[0.1.19]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.18...v0.1.19
+[0.1.19t]: https://github.com/galtzo-floss/rspec-pending_for/releases/tag/v0.1.19
 [0.1.18]: https://github.com/pboling/rspec-pending_for/compare/v0.1.17...v0.1.18
 [0.1.18t]: https://github.com/pboling/rspec-pending_for/tags/v0.1.18
 [0.1.17]: https://github.com/pboling/rspec-pending_for/compare/v0.1.16...v0.1.17

@@ -2,8 +2,6 @@
 
 source "https://rubygems.org"
 
-gem "erb"
-
 gemspec :path => "../"
 
 eval_gemfile("modular/coverage.gemfile")
@@ -11,3 +9,5 @@ eval_gemfile("modular/coverage.gemfile")
 eval_gemfile("modular/documentation.gemfile")
 
 eval_gemfile("modular/style.gemfile")
+
+eval_gemfile("modular/optional.gemfile")

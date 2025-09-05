@@ -278,12 +278,12 @@
       
         <li>
           <span class="name">:versions</span>
-          <span class="type">(<tt>String</tt>, <tt>Array&lt;String,Range&gt;</tt>)</span>
+          <span class="type">(<tt>String</tt>, <tt>Range</tt>, <tt>Array&lt;String,Range&gt;</tt>)</span>
           <span class="default">
             
           </span>
           
-            &mdash; <div class='inline'><p>A single version string or an Array of version specs. Each spec can be:</p>
+            &mdash; <div class='inline'><p>A single version string or range, or an Array of version specs. Each spec can be:</p>
 <ul>
   <li>String: exact version match (e.g., “2.7.8”)</li>
   <li>Range&lt;Gem::Version&gt;: inclusive/exclusive bounds respected (e.g., Gem::Version.new(“2.6.0”)…Gem::Version.new(“3.0.0”))</li>
@@ -401,12 +401,12 @@ JRuby/TruffleRuby are supported via RUBY_VERSION compatibility for Integer range
       
         <li>
           <span class="name">:versions</span>
-          <span class="type">(<tt>String</tt>, <tt>Array&lt;String,Range&gt;</tt>)</span>
+          <span class="type">(<tt>String</tt>, <tt>Range</tt>, <tt>Array&lt;String,Range&gt;</tt>)</span>
           <span class="default">
             
           </span>
           
-            &mdash; <div class='inline'><p>A single version string or an Array of version specs. Each spec can be:</p>
+            &mdash; <div class='inline'><p>A single version string or range, or an Array of version specs. Each spec can be:</p>
 <ul>
   <li>String: exact version match (e.g., “2.7.8”)</li>
   <li>Range&lt;Gem::Version&gt;: inclusive/exclusive bounds respected (e.g., Gem::Version.new(“2.6.0”)…Gem::Version.new(“3.0.0”))</li>
@@ -459,7 +459,7 @@ JRuby/TruffleRuby are supported via RUBY_VERSION compatibility for Integer range
 </div>
 
       <div id="footer">
-  Generated on Tue Aug 26 16:24:43 2025 by
+  Generated on Fri Sep  5 01:56:34 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-3.4.5).
 </div>
