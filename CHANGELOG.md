@@ -20,6 +20,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+- Add (non)CI badge for ruby-1.8
+
 ### Changed
 
 ### Deprecated
