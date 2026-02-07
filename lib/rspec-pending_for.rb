@@ -1,1 +1,1 @@
-require_relative "rspec/pending_for"
+require "rspec/pending_for"

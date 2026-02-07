@@ -5,10 +5,11 @@ require "ruby_version"
 require "ruby_engine"
 
 # This gem
-require_relative "pending_for/version"
-require_relative "pending_for/engine_or_versions_required"
-require_relative "pending_for/build"
-require_relative "pending_for/rspec"
+# NOTE: Switch to require_relative once dropping support for Ruby < 2.2
+require "rspec/pending_for/version"
+require "rspec/pending_for/engine_or_versions_required"
+require "rspec/pending_for/build"
+require "rspec/pending_for/rspec"
 
 module Rspec
   # Use with Rspec by including in your example groups, just like any other Rspec helpers:
