@@ -36,10 +36,6 @@ jobs:
     env:
       # $BUNDLE_GEMFILE must be set at job level, so it is set for all steps
       BUNDLE_GEMFILE: ${{ github.workspace }}/${{ matrix.gemfile }}.gemfile
-      # tree-sitter library paths for FFI/MRI/Rust backend compatibility
-      LD_LIBRARY_PATH: "/usr/local/lib:/usr/lib/x86_64-linux-gnu:/usr/lib"
-      TREE_SITTER_RUNTIME_LIB: "/usr/lib/x86_64-linux-gnu/libtree-sitter.so.0"
-      TREE_SITTER_TOML_PATH: "/usr/local/lib/libtree-sitter-toml.so"
     strategy:
       fail-fast: true
       matrix:
@@ -72,14 +68,6 @@ jobs:
       - name: Checkout
         if: ${{ !env.ACT || (! startsWith(matrix.ruby, 'jruby') && !startsWith(matrix.ruby, 'truffleruby')) }}
         uses: actions/checkout@v6
-
-      - name: Install tree-sitter and toml grammar
-        if: ${{ !env.ACT || (! startsWith(matrix.ruby, 'jruby') && !startsWith(matrix.ruby, 'truffleruby')) }}
-        uses: kettle-rb/ts-grammar-action@main
-        with:
-          grammar-toml: true
-          setup-jtreesitter: ${{ startsWith(matrix.ruby, 'jruby') }}
-          java-version: "23"
 
       - name: Setup Ruby & RubyGems
         if: ${{ !env.ACT || (! startsWith(matrix.ruby, 'jruby') && !startsWith(matrix.ruby, 'truffleruby')) }}
