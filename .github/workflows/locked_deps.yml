@@ -81,12 +81,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Install tree-sitter and toml grammar
-        uses: kettle-rb/ts-grammar-action@main
-        with:
-          setup-rust: "true"
-          grammar-toml: "true"
-
       - name: Setup Ruby & Gems via rv & ore
         uses: appraisal-rb/setup-ruby-flash@main
         with:
@@ -94,8 +88,10 @@ jobs:
           rubygems: "${{ matrix.rubygems }}"
           bundler: "${{ matrix.bundler }}"
           ore-install: true
-          rv-git-ref: "v0.4.3"
-          ore-git-ref: "v0.21.0"
+          ore-version: "latest"
+          rv-version: "latest"
+#          rv-git-ref: "v0.4.3"
+#          ore-git-ref: "v0.21.0"
           cache-version: "v1"
 
       #      - name: Diagnostic - Compare gemspec formats
