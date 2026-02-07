@@ -589,7 +589,7 @@ Thanks for RTFM. ☺️
 [✇bundle-group-pattern]: https://gist.github.com/pboling/4564780
 [⛳️gem-namespace]: https://github.com/galtzo-floss/rspec-pending_for
 [⛳️namespace-img]: https://img.shields.io/badge/namespace-Rspec::PendingFor-3C2D2D.svg?style=square&logo=ruby&logoColor=white
-[⛳️gem-name]: https://rubygems.org/gems/rspec-pending_for
+[⛳️gem-name]: https://gem.coop/gems/rspec-pending_for
 [⛳️name-img]: https://img.shields.io/badge/name-rspec--pending__for-3C2D2D.svg?style=square&logo=rubygems&logoColor=red
 [⛳️tag-img]: https://img.shields.io/github/tag/galtzo-floss/rspec-pending_for.svg
 [⛳️tag]: http://github.com/galtzo-floss/rspec-pending_for/releases
@@ -636,11 +636,11 @@ Thanks for RTFM. ☺️
 [📜docs-head-rd-img]: https://img.shields.io/badge/YARD_on_Galtzo.com-HEAD-943CD2?style=for-the-badge&logo=readthedocs&logoColor=white
 [📜wiki]: https://gitlab.com/galtzo-floss/rspec-pending_for/-/wikis/home
 [📜wiki-img]: https://img.shields.io/badge/wiki-examples-943CD2.svg?style=for-the-badge&logo=Wiki&logoColor=white
-[👽dl-rank]: https://rubygems.org/gems/rspec-pending_for
+[👽dl-rank]: https://gem.coop/gems/rspec-pending_for
 [👽dl-ranki]: https://img.shields.io/gem/rd/rspec-pending_for.svg
 [👽oss-help]: https://www.codetriage.com/galtzo-floss/rspec-pending_for
 [👽oss-helpi]: https://www.codetriage.com/galtzo-floss/rspec-pending_for/badges/users.svg
-[👽version]: https://rubygems.org/gems/rspec-pending_for
+[👽version]: https://gem.coop/gems/rspec-pending_for
 [👽versioni]: https://img.shields.io/gem/v/rspec-pending_for.svg
 [🔑qlty-mnt]: https://qlty.sh/gh/galtzo-floss/projects/rspec-pending_for
 [🔑qlty-mnti]: https://qlty.sh/gh/galtzo-floss/projects/rspec-pending_for/maintainability.svg

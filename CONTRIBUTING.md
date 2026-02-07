@@ -187,7 +187,7 @@ NOTE: To build without signing the gem set `SKIP_GEM_SIGNING` to any value in th
 [🖐contributors]: https://github.com/galtzo-floss/rspec-pending_for/graphs/contributors
 [🚎contributors-gl]: https://gitlab.com/galtzo-floss/rspec-pending_for/-/graphs/main
 [🖐contributors-img]: https://contrib.rocks/image?repo=galtzo-floss/rspec-pending_for
-[💎rubygems]: https://rubygems.org
+[💎rubygems]: https://gem.coop
 [🔒️rubygems-security-guide]: https://guides.rubygems.org/security/#building-gems
 [🔒️rubygems-checksums-pr]: https://github.com/rubygems/rubygems/pull/6022
 [🔒️rubygems-guides-pr]: https://github.com/rubygems/guides/pull/325
