@@ -15,15 +15,15 @@
     </content>
     <orderEntry type="jdk" jdkName="mise: 4.0.1" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="addressable (v2.8.8, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ansi (v1.5.0, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="appraisal2 (v3.0.2, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ast (v2.4.3, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="backports (v3.25.3, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="benchmark (v0.5.0, mise: 4.0.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="bigdecimal (v4.0.1, mise: 4.0.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bigdecimal (v3.3.1, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v4.0.6, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler-audit (v0.9.3, mise: 4.0.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="coderay (v1.1.3, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.3.6, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="date (v3.5.1, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="debug (v1.11.1, mise: 4.0.1) [gem]" level="application" />
@@ -38,7 +38,7 @@
     <orderEntry type="library" scope="PROVIDED" name="dry-logic (v1.6.0, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="dry-schema (v1.15.0, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="dry-types (v1.9.1, mise: 4.0.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="erb (v6.0.1, mise: 4.0.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="erb (v5.1.3, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="gem_bench (v2.0.5, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="gitmoji-regex (v1.0.3, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.8.2, mise: 4.0.1) [gem]" level="application" />
@@ -52,16 +52,19 @@
     <orderEntry type="library" scope="PROVIDED" name="language_server-protocol (v3.17.0.5, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="lint_roller (v1.1.0, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="logger (v1.7.0, mise: 4.0.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="method_source (v1.1.0, mise: 4.0.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="matrix (v0.4.3, mise: 4.0.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mutex_m (v0.3.0, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.19.0, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ostruct (v0.6.3, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="parallel (v1.27.0, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="parser (v3.3.10.1, mise: 4.0.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pdf-core (v0.10.0, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pp (v0.6.3, mise: 4.0.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="prawn (v2.5.0, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="prettyprint (v0.2.0, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="prism (v1.9.0, mise: 4.0.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="pry (v0.16.0, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="psych (v5.3.1, mise: 4.0.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="public_suffix (v7.0.2, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="racc (v1.8.1, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rainbow (v3.1.1, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v13.3.1, mise: 4.0.1) [gem]" level="application" />
@@ -115,12 +118,16 @@
     <orderEntry type="library" scope="PROVIDED" name="timecop (v0.9.10, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="timecop-rspec (v1.0.3, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tsort (v0.2.0, mise: 4.0.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ttfunk (v1.8.0, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="unicode-display_width (v3.2.0, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="unicode-emoji (v4.2.0, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="version_gem (v1.1.9, mise: 4.0.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="yaml-converter (v0.1.0, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="yard (v0.9.38, mise: 4.0.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="yard-fence (v0.8.2, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="yard-junk (v0.0.10@54cceb, mise: 4.0.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="yard-relative_markdown_links (v0.5.0, mise: 4.0.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="yard-relative_markdown_links (v0.6.0, mise: 4.0.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="yard-yaml (v0.1.0, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="zeitwerk (v2.7.4, mise: 4.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="zlib (v3.2.2, mise: 4.0.1) [gem]" level="application" />
   </component>
