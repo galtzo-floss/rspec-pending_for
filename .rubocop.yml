@@ -1,7 +1,31 @@
 inherit_gem:
   rubocop-lts: config/rubygem_rspec.yml
 
+inherit_from:
+  - .rubocop_rspec.yml
+
 plugins: rubocop-on-rbs
+
+# This tells RuboCop to add the exclusions in this file
+# to the default exclusions (and those from other inherited files),
+# rather than overwriting them.
+inherit_mode:
+  merge:
+    - Exclude
+
+AllCops:
+  Exclude:
+    - certs/**/*
+    - checksums/**/*
+    - docs/**/*
+    - fixtures/**/*
+    - gemfiles/*.gemfile
+    - pkg/**/*
+    - results/**/*
+    - spec/fixtures/**/*
+    - tmp/**/*
+    - vendor/**/*
+    - deps/**/*
 
 RBS:
   Enabled: true
@@ -20,3 +44,7 @@ RSpec/NestedGroups:
 
 Style/SymbolArray:
   EnforcedStyle: brackets
+
+Layout/TrailingEmptyLines:
+  # Confusingly, final_blank_line means two blank lines, and final_newline means one.
+  EnforcedStyle: final_newline
