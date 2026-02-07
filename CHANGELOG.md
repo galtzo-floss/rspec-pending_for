@@ -17,11 +17,22 @@ Please file a bug if you notice a violation of semantic versioning.
 [📗keep-changelog-img]: https://img.shields.io/badge/keep--a--changelog-1.0.0-FFDD67.svg?style=flat
 
 ## [Unreleased]
+
 ### Added
+
+- Documentation on hostile takeover of RubyGems
+  - https://dev.to/galtzo/hostile-takeover-of-rubygems-my-thoughts-5hlo
+
 ### Changed
+
 ### Deprecated
+
 ### Removed
+
 ### Fixed
+
+- compatibility with Ruby < 2.2 (accidentally switched to require_relative)
+
 ### Security
 
 ## [0.1.19] - 2025-09-05
