@@ -3,7 +3,7 @@
 module Rspec
   module PendingFor
     module Version
-      VERSION = "0.1.20"
+      VERSION = "0.1.21"
     end
     VERSION = Version::VERSION # Traditional Constant Location
   end

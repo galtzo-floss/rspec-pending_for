@@ -20,13 +20,28 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
-- Add (non)CI badge for ruby-1.8
-- Support `versions: "head"` in `pending_for` and `skip_for` to target
-  ruby-head, jruby-head, and truffleruby-head builds.
-
 ### Changed
 
 ### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [0.1.21] - 2026-07-01
+
+- TAG: [v0.1.21][0.1.21t]
+- COVERAGE: 100.00% -- 100/100 lines in 6 files
+- BRANCH COVERAGE: 100.00% -- 43/43 branches in 6 files
+- 63.64% documented
+
+### Added
+
+- Add (non)CI badge for ruby-1.8
+- Support `versions: "head"` in `pending_for` and `skip_for` to target
+  ruby-head, jruby-head, and truffleruby-head builds.
 
 ### Removed
 
@@ -37,8 +52,6 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Fixed current RuboCop Gradual lock drift while preserving the remaining
   baseline entries.
-
-### Security
 
 ## [0.1.20] - 2026-02-07
 
@@ -107,7 +120,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - Compatibility with truffleruby (maybe? not able to run it in CI yet)
 - Fixed compatibility with Ruby < 2
 
-[Unreleased]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.20...HEAD
+[Unreleased]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.21...HEAD
+[0.1.21]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.20...v0.1.21
+[0.1.21t]: https://github.com/galtzo-floss/rspec-pending_for/releases/tag/v0.1.21
 [0.1.20]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.19...v0.1.20
 [0.1.20t]: https://github.com/galtzo-floss/rspec-pending_for/releases/tag/v0.1.20
 [0.1.19]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.18...v0.1.19
