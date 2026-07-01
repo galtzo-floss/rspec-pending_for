@@ -1,13 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe Rspec::PendingFor do
-  # Make the methods callable for the purposes of testing
-  module Rspec
-    module PendingFor
-      extend self
-    end
-  end
+Rspec::PendingFor.extend(Rspec::PendingFor)
 
+RSpec.describe Rspec::PendingFor do
   it "has a version number" do
     expect(Rspec::PendingFor::VERSION).not_to be_nil
   end
@@ -128,20 +123,20 @@ RSpec.describe Rspec::PendingFor do
         context "version is a match" do
           it("calls pending") do
             expect(described_class).to receive(:pending)
-            expect(described_class.pending_for(:versions => %w[2.1.5 2.2.3])).to be_nil
+            expect(described_class.pending_for(:versions => ["2.1.5", "2.2.3"])).to be_nil
           end
 
           context "and engine" do
             it("is a match calls pending") do
               allow(RubyEngine).to receive(:is?).and_return(true)
               expect(described_class).to receive(:pending)
-              expect(described_class.pending_for(:engine => "ruby", :versions => %w[2.1.5 2.2.3])).to be_nil
+              expect(described_class.pending_for(:engine => "ruby", :versions => ["2.1.5", "2.2.3"])).to be_nil
             end
 
             it("is not a match does not call pending") do
               allow(RubyEngine).to receive(:is?).and_return(false)
               expect(described_class).not_to receive(:pending)
-              expect(described_class.pending_for(:engine => "ruby", :versions => %w[2.1.5 2.2.3])).to be_nil
+              expect(described_class.pending_for(:engine => "ruby", :versions => ["2.1.5", "2.2.3"])).to be_nil
             end
           end
         end
@@ -149,37 +144,28 @@ RSpec.describe Rspec::PendingFor do
         context "version is not a match" do
           it("does not call pending when version is not a match") do
             expect(described_class).not_to receive(:pending)
-            expect(described_class.pending_for(:versions => %w[2.0.0 2.2.3])).to be_nil
+            expect(described_class.pending_for(:versions => ["2.0.0", "2.2.3"])).to be_nil
           end
 
           context "and engine" do
             it("is a match does not call pending") do
               allow(RubyEngine).to receive(:is?).and_return(true)
               expect(described_class).not_to receive(:pending)
-              expect(described_class.pending_for(:engine => "ruby", :versions => %w[2.0.0 2.2.3])).to be_nil
+              expect(described_class.pending_for(:engine => "ruby", :versions => ["2.0.0", "2.2.3"])).to be_nil
             end
 
             it("is not a match does not call pending") do
               allow(RubyEngine).to receive(:is?).and_return(false)
               expect(described_class).not_to receive(:pending)
-              expect(described_class.pending_for(:engine => "ruby", :versions => %w[2.0.0 2.2.3])).to be_nil
+              expect(described_class.pending_for(:engine => "ruby", :versions => ["2.0.0", "2.2.3"])).to be_nil
             end
           end
         end
       end
 
       context "as head sentinel" do
-        around do |example|
-          original = Object.const_get(:RUBY_DESCRIPTION)
-          Object.send(:remove_const, :RUBY_DESCRIPTION)
-          Object.const_set(:RUBY_DESCRIPTION, ruby_description)
-          example.run
-        ensure
-          Object.send(:remove_const, :RUBY_DESCRIPTION)
-          Object.const_set(:RUBY_DESCRIPTION, original)
-        end
-
         before do
+          stub_const("RUBY_DESCRIPTION", ruby_description)
           allow(RubyVersion).to receive(:to_s).and_return("4.0.0")
         end
 
@@ -426,20 +412,20 @@ RSpec.describe Rspec::PendingFor do
         context "version is a match" do
           it("calls skip") do
             expect(described_class).to receive(:skip)
-            expect(described_class.skip_for(:versions => %w[2.1.5 2.2.3])).to be_nil
+            expect(described_class.skip_for(:versions => ["2.1.5", "2.2.3"])).to be_nil
           end
 
           context "and engine" do
             it("is a match calls skip") do
               allow(RubyEngine).to receive(:is?).and_return(true)
               expect(described_class).to receive(:skip)
-              expect(described_class.skip_for(:engine => "ruby", :versions => %w[2.1.5 2.2.3])).to be_nil
+              expect(described_class.skip_for(:engine => "ruby", :versions => ["2.1.5", "2.2.3"])).to be_nil
             end
 
             it("is not a match does not call skip") do
               allow(RubyEngine).to receive(:is?).and_return(false)
               expect(described_class).not_to receive(:skip)
-              expect(described_class.skip_for(:engine => "ruby", :versions => %w[2.1.5 2.2.3])).to be_nil
+              expect(described_class.skip_for(:engine => "ruby", :versions => ["2.1.5", "2.2.3"])).to be_nil
             end
           end
         end
@@ -447,37 +433,28 @@ RSpec.describe Rspec::PendingFor do
         context "version is not a match" do
           it("does not call skip when version is not a match") do
             expect(described_class).not_to receive(:skip)
-            expect(described_class.skip_for(:versions => %w[2.0.0 2.2.3])).to be_nil
+            expect(described_class.skip_for(:versions => ["2.0.0", "2.2.3"])).to be_nil
           end
 
           context "and engine" do
             it("is a match does not call skip") do
               allow(RubyEngine).to receive(:is?).and_return(true)
               expect(described_class).not_to receive(:skip)
-              expect(described_class.skip_for(:engine => "ruby", :versions => %w[2.0.0 2.2.3])).to be_nil
+              expect(described_class.skip_for(:engine => "ruby", :versions => ["2.0.0", "2.2.3"])).to be_nil
             end
 
             it("is not a match does not call skip") do
               allow(RubyEngine).to receive(:is?).and_return(false)
               expect(described_class).not_to receive(:skip)
-              expect(described_class.skip_for(:engine => "ruby", :versions => %w[2.0.0 2.2.3])).to be_nil
+              expect(described_class.skip_for(:engine => "ruby", :versions => ["2.0.0", "2.2.3"])).to be_nil
             end
           end
         end
       end
 
       context "as head sentinel" do
-        around do |example|
-          original = Object.const_get(:RUBY_DESCRIPTION)
-          Object.send(:remove_const, :RUBY_DESCRIPTION)
-          Object.const_set(:RUBY_DESCRIPTION, ruby_description)
-          example.run
-        ensure
-          Object.send(:remove_const, :RUBY_DESCRIPTION)
-          Object.const_set(:RUBY_DESCRIPTION, original)
-        end
-
         before do
+          stub_const("RUBY_DESCRIPTION", ruby_description)
           allow(RubyVersion).to receive(:to_s).and_return("4.0.0")
         end
 

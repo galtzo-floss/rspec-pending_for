@@ -7,11 +7,11 @@ RSpec.describe Rspec::PendingFor::Build do
 
   describe "#relevant_versions" do
     it "defaults to empty array" do
-      expect(described_class.new.relevant_versions).to eq []
+      expect(described_class.new.relevant_versions).to be_empty
     end
 
     it "nil becomes empty array" do
-      expect(described_class.new(:versions => nil).relevant_versions).to eq []
+      expect(described_class.new(:versions => nil).relevant_versions).to be_empty
     end
 
     it "can be set" do
@@ -102,7 +102,7 @@ RSpec.describe Rspec::PendingFor::Build do
       it "uses provided reason when engine only (all versions)" do
         allow(RubyEngine).to receive(:is?).and_return(true)
         expect(
-          described_class.new(:engine => "ruby", :reason => "custom reason").message,
+          described_class.new(:engine => "ruby", :reason => "custom reason").message
         ).to eq("custom reason")
       end
 
@@ -110,14 +110,14 @@ RSpec.describe Rspec::PendingFor::Build do
         allow(RubyEngine).to receive(:is?).and_return(true)
         allow(RubyVersion).to receive(:to_s).and_return("2.1.5")
         expect(
-          described_class.new(:engine => "rbx", :versions => "2.1.5", :reason => "because turtles").message,
+          described_class.new(:engine => "rbx", :versions => "2.1.5", :reason => "because turtles").message
         ).to eq("because turtles")
       end
 
       it "uses provided reason when no engine but versions match" do
         allow(RubyVersion).to receive(:to_s).and_return("2.1.5")
         expect(
-          described_class.new(:versions => ["2.1.5"], :reason => "no engine reason").message,
+          described_class.new(:versions => ["2.1.5"], :reason => "no engine reason").message
         ).to eq("no engine reason")
       end
     end
@@ -150,7 +150,7 @@ RSpec.describe Rspec::PendingFor::Build do
       it "handles unrecognized version spec objects by returning no match" do
         allow(RubyVersion).to receive(:to_s).and_return("2.1.5")
         expect(
-          described_class.new(:versions => [Object.new]).message,
+          described_class.new(:versions => [Object.new]).message
         ).to be_nil
       end
 
@@ -172,16 +172,7 @@ RSpec.describe Rspec::PendingFor::Build do
       before do
         allow(RubyEngine).to receive(:is?).with("jruby").and_return(true)
         allow(RubyVersion).to receive(:to_s).and_return("4.0.0")
-      end
-
-      around do |example|
-        original = Object.const_get(:RUBY_DESCRIPTION)
-        Object.send(:remove_const, :RUBY_DESCRIPTION)
-        Object.const_set(:RUBY_DESCRIPTION, ruby_description)
-        example.run
-      ensure
-        Object.send(:remove_const, :RUBY_DESCRIPTION)
-        Object.const_set(:RUBY_DESCRIPTION, original)
+        stub_const("RUBY_DESCRIPTION", ruby_description)
       end
 
       context "when the current engine build is a snapshot" do
@@ -189,7 +180,7 @@ RSpec.describe Rspec::PendingFor::Build do
 
         it "matches the head version sentinel" do
           expect(
-            described_class.new(:engine => "jruby", :versions => "head").message,
+            described_class.new(:engine => "jruby", :versions => "head").message
           ).to include("Behavior is broken")
         end
       end
@@ -199,7 +190,7 @@ RSpec.describe Rspec::PendingFor::Build do
 
         it "does not match the head version sentinel" do
           expect(
-            described_class.new(:engine => "jruby", :versions => "head").message,
+            described_class.new(:engine => "jruby", :versions => "head").message
           ).to be_nil
         end
       end

@@ -86,7 +86,17 @@ ruby-head, jruby-head, and truffleruby-head builds.</li>
 
 <h3 id="removed">Removed</h3>
 
+<ul>
+  <li>Removed obsolete <code>Locked.gemfile</code> files now that the locked-deps workflow uses<br>
+the main <code>Gemfile.lock</code>.</li>
+</ul>
+
 <h3 id="fixed">Fixed</h3>
+
+<ul>
+  <li>Fixed current RuboCop Gradual lock drift while preserving the remaining<br>
+baseline entries.</li>
+</ul>
 
 <h3 id="security">Security</h3>
 
@@ -200,7 +210,7 @@ ruby-head, jruby-head, and truffleruby-head builds.</li>
 </div></div>
 
       <div id="footer">
-  Generated on Wed Jul  1 05:51:26 2026 by
+  Generated on Wed Jul  1 06:02:47 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.5).
 </div>

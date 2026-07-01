@@ -106,13 +106,13 @@ module Rspec
               if spec.exclude_end?
                 b <= current_gemv && current_gemv < e
               else
-                b <= current_gemv && current_gemv <= e
+                current_gemv.between?(b, e)
               end
             elsif b.is_a?(Integer) && e.is_a?(Integer)
               if spec.exclude_end?
                 b <= current_major && current_major < e
               else
-                b <= current_major && current_major <= e
+                current_major.between?(b, e)
               end
             else
               # Fallback: try cover? with the string form (likely false if incomparable)

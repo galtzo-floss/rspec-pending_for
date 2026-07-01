@@ -194,7 +194,7 @@ To mark a spec pending or skipped for multiple engines and versions, just what y
 it("blah is blah") do
   skip_for(:engine => "jruby", :reason => "This does not work on JRuby so skipping for now") # All JRuby versions will be skipped
   pending_for(:engine => "rbx", :reason => "This does not work on Rubinius so pending for now") # All rbx versions will be pending
-  pending_for(:engine => "ruby", :versions => ['1.9.3', '2.0.0', '2.1.0']) # uses the default message
+  pending_for(:engine => "ruby", :versions => ["1.9.3", "2.0.0", "2.1.0"]) # uses the default message
   expect("blah").to(eq("blah"))
 end
 ```
@@ -234,7 +234,7 @@ end
 2) Multiple exact versions
 ```ruby
 it "pend on a set of MRI versions" do
-  pending_for(:engine => :ruby, :versions => ['2.7.10', '3.0.7', '3.1.6'])
+  pending_for(:engine => :ruby, :versions => ["2.7.10", "3.0.7", "3.1.6"])
 end
 ```
 
@@ -303,7 +303,7 @@ RSpec.configure do |config|
     # Skip on Ruby < 3.2 using rspec-pending_for's version matcher
     skip_for(
       :reason => "Requires Bundler >= 2.7 which is unavailable on Ruby < 3.2",
-      :versions => ['2.3', '2.4', '2.5', '2.6', '2.7', '3.0', '3.1']
+      :versions => ["2.3", "2.4", "2.5", "2.6", "2.7", "3.0", "3.1"]
     )
   end
 end

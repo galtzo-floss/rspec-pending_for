@@ -30,7 +30,13 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Removed
 
+- Removed obsolete `Locked.gemfile` files now that the locked-deps workflow uses
+  the main `Gemfile.lock`.
+
 ### Fixed
+
+- Fixed current RuboCop Gradual lock drift while preserving the remaining
+  baseline entries.
 
 ### Security
 

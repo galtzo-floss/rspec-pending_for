@@ -437,7 +437,7 @@ end
 <pre class="code language-ruby"><code class="language-ruby">it(&quot;blah is blah&quot;) do
   skip_for(:engine =&gt; &quot;jruby&quot;, :reason =&gt; &quot;This does not work on JRuby so skipping for now&quot;) # All JRuby versions will be skipped
   pending_for(:engine =&gt; &quot;rbx&quot;, :reason =&gt; &quot;This does not work on Rubinius so pending for now&quot;) # All rbx versions will be pending
-  pending_for(:engine =&gt; &quot;ruby&quot;, :versions =&gt; [&#39;1.9.3&#39;, &#39;2.0.0&#39;, &#39;2.1.0&#39;]) # uses the default message
+  pending_for(:engine =&gt; &quot;ruby&quot;, :versions =&gt; [&quot;1.9.3&quot;, &quot;2.0.0&quot;, &quot;2.1.0&quot;]) # uses the default message
   expect(&quot;blah&quot;).to(eq(&quot;blah&quot;))
 end
 </code></pre>
@@ -482,7 +482,7 @@ end
 
 <p>2) Multiple exact versions</p>
 <pre class="code language-ruby"><code class="language-ruby">it &quot;pend on a set of MRI versions&quot; do
-  pending_for(:engine =&gt; :ruby, :versions =&gt; [&#39;2.7.10&#39;, &#39;3.0.7&#39;, &#39;3.1.6&#39;])
+  pending_for(:engine =&gt; :ruby, :versions =&gt; [&quot;2.7.10&quot;, &quot;3.0.7&quot;, &quot;3.1.6&quot;])
 end
 </code></pre>
 
@@ -547,7 +547,7 @@ RSpec.configure do |config|
     # Skip on Ruby &lt; 3.2 using rspec-pending_for&#39;s version matcher
     skip_for(
       :reason =&gt; &quot;Requires Bundler &gt;= 2.7 which is unavailable on Ruby &lt; 3.2&quot;,
-      :versions =&gt; [&#39;2.3&#39;, &#39;2.4&#39;, &#39;2.5&#39;, &#39;2.6&#39;, &#39;2.7&#39;, &#39;3.0&#39;, &#39;3.1&#39;]
+      :versions =&gt; [&quot;2.3&quot;, &quot;2.4&quot;, &quot;2.5&quot;, &quot;2.6&quot;, &quot;2.7&quot;, &quot;3.0&quot;, &quot;3.1&quot;]
     )
   end
 end
@@ -805,7 +805,7 @@ Please consider sponsoring me or the project.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Wed Jul  1 05:51:26 2026 by
+  Generated on Wed Jul  1 06:02:47 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.5).
 </div>
