@@ -6,13 +6,13 @@
 <title>
   Module: Rspec::PendingFor
   
-    &mdash; Documentation by YARD 0.9.38
+    &mdash; Documentation by YARD 0.9.44
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "Rspec::PendingFor";
@@ -27,6 +27,8 @@
 
   </head>
   <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
     <div class="nav_wrap">
       <iframe id="nav" src="../class_list.html?1"></iframe>
       <div id="resizer"></div>
@@ -78,8 +80,9 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/rspec/pending_for.rb<span class="defines">,<br />
-  lib/rspec/pending_for/build.rb,<br /> lib/rspec/pending_for/version.rb,<br /> lib/rspec/pending_for/engine_or_versions_required.rb</span>
+    <dd>lib/rspec/pending_for.rb<span class="defines">,<br>
+  lib/rspec/pending_for/build.rb,<br> lib/rspec/pending_for/version.rb,<br> lib/rspec/pending_for/engine_or_versions_required.rb</span>
+
 </dd>
   </dl>
   
@@ -124,7 +127,7 @@
         <dt id="VERSION-constant" class="">VERSION =
           <div class="docstring">
   <div class="discussion">
-    <p>Backwards compatability shim.</p>
+    <p>Traditional Constant Location</p>
 
 
   </div>
@@ -200,6 +203,7 @@
 
       
     </ul>
+    
   
 
 
@@ -285,7 +289,7 @@
           
             &mdash; <div class='inline'><p>A single version string or range, or an Array of version specs. Each spec can be:</p>
 <ul>
-  <li>String: exact version match (e.g., “2.7.8”)</li>
+  <li>String: exact version match (e.g., “2.7.8”) or “head” for head/dev/SNAPSHOT builds</li>
   <li>Range&lt;Gem::Version&gt;: inclusive/exclusive bounds respected (e.g., Gem::Version.new(“2.6.0”)…Gem::Version.new(“3.0.0”))</li>
   <li>Range<Integer>: compares Ruby major version (e.g., 2..3). Inclusive/exclusive respected.
 JRuby/TruffleRuby are supported via RUBY_VERSION compatibility for Integer ranges and Gem::Version ranges.</Integer></li>
@@ -316,12 +320,12 @@ JRuby/TruffleRuby are supported via RUBY_VERSION compatibility for Integer range
       <pre class="lines">
 
 
-40
-41
-42</pre>
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/pending_for.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/pending_for.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pending_for'>pending_for</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_modify_example_with'>modify_example_with</span><span class='lparen'>(</span><span class='symbol'>:pending</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
@@ -408,7 +412,7 @@ JRuby/TruffleRuby are supported via RUBY_VERSION compatibility for Integer range
           
             &mdash; <div class='inline'><p>A single version string or range, or an Array of version specs. Each spec can be:</p>
 <ul>
-  <li>String: exact version match (e.g., “2.7.8”)</li>
+  <li>String: exact version match (e.g., “2.7.8”) or “head” for head/dev/SNAPSHOT builds</li>
   <li>Range&lt;Gem::Version&gt;: inclusive/exclusive bounds respected (e.g., Gem::Version.new(“2.6.0”)…Gem::Version.new(“3.0.0”))</li>
   <li>Range<Integer>: compares Ruby major version (e.g., 2..3). Inclusive/exclusive respected.
 JRuby/TruffleRuby are supported via RUBY_VERSION compatibility for Integer ranges and Gem::Version ranges.</Integer></li>
@@ -439,12 +443,12 @@ JRuby/TruffleRuby are supported via RUBY_VERSION compatibility for Integer range
       <pre class="lines">
 
 
-62
-63
-64</pre>
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/pending_for.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/pending_for.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_skip_for'>skip_for</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_modify_example_with'>modify_example_with</span><span class='lparen'>(</span><span class='symbol'>:skip</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
@@ -459,9 +463,9 @@ JRuby/TruffleRuby are supported via RUBY_VERSION compatibility for Integer range
 </div>
 
       <div id="footer">
-  Generated on Sat Feb  7 15:31:32 2026 by
+  Generated on Wed Jul  1 05:51:26 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.38 (ruby-4.0.1).
+  0.9.44 (ruby-4.0.5).
 </div>
 
     </div>
