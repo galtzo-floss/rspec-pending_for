@@ -1,52 +1,34 @@
 {
-  "bin/bundle:247448467": [
-    [64, 5, 20, "ThreadSafety/ClassInstanceVariable: Avoid class instance variables.", 2485198147]
+  "README.md:862299502": [
+    [197, 48, 7, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 4073818430],
+    [197, 57, 7, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 3885558615],
+    [197, 66, 7, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 3885664310],
+    [237, 47, 8, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 3666182497],
+    [237, 57, 7, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 4000662801],
+    [237, 66, 7, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 4000557201],
+    [306, 21, 5, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 94279018],
+    [306, 28, 5, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 94278861],
+    [306, 35, 5, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 94278956],
+    [306, 42, 5, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 94278799],
+    [306, 49, 5, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 94278894],
+    [306, 56, 5, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 94384680],
+    [306, 63, 5, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 94384585]
   ],
-  "lib/rspec/pending_for/build.rb:760912462": [
-    [107, 17, 38, "Style/ComparableBetween: Prefer `current_gemv.between?(b, e)` over logical comparison.", 2223453186],
-    [113, 17, 40, "Style/ComparableBetween: Prefer `current_major.between?(b, e)` over logical comparison.", 1125480098]
+  "lib/rspec/pending_for/build.rb:3162377662": [
+    [109, 17, 38, "Style/ComparableBetween: Prefer `current_gemv.between?(b, e)` over logical comparison.", 2223453186],
+    [115, 17, 40, "Style/ComparableBetween: Prefer `current_major.between?(b, e)` over logical comparison.", 1125480098]
   ],
   "spec/rspec/minor_version_matching_spec.rb:3872953912": [
     [3, 16, 49, "RSpec/DescribeClass: The first argument to describe should be the class or module being tested.", 3126525521],
+    [6, 5, 74, "Lint/ConstantDefinitionInBlock: Do not define constants this way within a block.", 1925060230],
     [6, 5, 74, "RSpec/LeakyConstantDeclaration: Stub module constant instead of declaring explicitly.", 1925060230],
     [7, 7, 47, "RSpec/LeakyConstantDeclaration: Stub module constant instead of declaring explicitly.", 1366156481]
   ],
-  "spec/rspec/pending_for/build_spec.rb:1969401399": [
-    [63, 13, 24, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 408355943],
-    [68, 15, 25, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 2840368563],
-    [74, 15, 32, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 4291231789],
-    [81, 13, 25, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 2840368563],
-    [87, 13, 32, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 4291231789],
-    [93, 13, 31, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 1078486521]
+  "spec/rspec/pending_for/build_spec.rb:2057053357": [
+    [182, 7, 6, "Lint/Syntax: unexpected token kENSURE\n(Using Ruby 2.0 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 1164465823]
   ],
-  "spec/rspec/pending_for_spec.rb:3062185187": [
-    [5, 3, 66, "RSpec/LeakyConstantDeclaration: Stub module constant instead of declaring explicitly.", 1909917830],
-    [6, 5, 43, "RSpec/LeakyConstantDeclaration: Stub module constant instead of declaring explicitly.", 329490497],
-    [16, 13, 14, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 1341772134],
-    [37, 15, 8, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 2080236924],
-    [57, 15, 16, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 3664674875],
-    [79, 15, 11, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 1437016546],
-    [82, 17, 20, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 3485225367],
-    [88, 19, 12, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 124201728],
-    [103, 17, 24, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 487865602],
-    [109, 19, 12, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 124201728],
-    [125, 15, 21, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 880386561],
-    [128, 17, 20, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 3485225367],
-    [134, 19, 12, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 124201728],
-    [149, 17, 24, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 487865602],
-    [155, 19, 12, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 124201728],
-    [278, 13, 14, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 1341772134],
-    [299, 15, 8, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 2080236924],
-    [319, 15, 16, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 3664674875],
-    [341, 15, 11, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 1437016546],
-    [344, 17, 20, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 3485225367],
-    [350, 19, 12, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 124201728],
-    [365, 17, 24, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 487865602],
-    [371, 19, 12, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 124201728],
-    [387, 15, 21, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 880386561],
-    [390, 17, 20, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 3485225367],
-    [396, 19, 12, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 124201728],
-    [411, 17, 24, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 487865602],
-    [417, 19, 12, "RSpec/ContextWording: Context description should match /^when\\b/, /^with\\b/, or /^without\\b/.", 124201728]
+  "spec/rspec/pending_for_spec.rb:1500866243": [
+    [177, 9, 6, "Lint/Syntax: unexpected token kENSURE\n(Using Ruby 2.0 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 1164465823],
+    [475, 9, 6, "Lint/Syntax: unexpected token kENSURE\n(Using Ruby 2.0 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 1164465823]
   ]
 }

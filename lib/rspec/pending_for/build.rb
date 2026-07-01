@@ -30,7 +30,7 @@ module Rspec
         "maglev" => "MagLev",
         "ironruby" => "IronRuby",
         "cardinal" => "Cardinal",
-        "truffleruby" => "Truffle Ruby",
+        "truffleruby" => "Truffle Ruby"
       }.freeze
       BROKEN_STRING = "Behavior is broken"
       BUG_STRING = "due to a bug in the Ruby engine"
@@ -81,7 +81,7 @@ module Rspec
         current_major = current_str.to_s.split(".").first.to_i
         current_gemv = begin
           Gem::Version.new(current_str.to_s)
-        rescue StandardError
+        rescue
           nil
         end
 

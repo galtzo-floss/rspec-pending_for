@@ -1,0 +1,8 @@
+module Rspec
+  module PendingFor
+    module Version
+      VERSION: String
+    end
+    VERSION: String
+  end
+end

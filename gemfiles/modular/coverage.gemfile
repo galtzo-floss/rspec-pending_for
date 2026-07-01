@@ -1,25 +1,16 @@
 # frozen_string_literal: true
 
-# To retain during kettle-dev templating:
-#     kettle-dev:freeze
-#     # ... your code
-#     kettle-dev:unfreeze
 # We run code coverage on the latest version of Ruby only.
 
-if ENV.fetch("KETTLE_RB_DEV", "false").casecmp?("true")
-  gem "kettle-dev", :path => "../../../kettle-dev"
-  gem "kettle-test", :path => "../../../kettle-test"
-else
-  # Otherwise rely on gemspec...
-  # gem "kettle-dev"
-  # gem "kettle-test"
-end
+gem "simplecov", :github => "kettle-dev/simplecov", :branch => "fix-final-parallel-worker-formatting"
 
-# Coverage
-platform :mri do
-  if ENV.fetch("KETTLE_RB_DEV", "false").casecmp?("true")
-    gem "kettle-soup-cover", :path => "../../../kettle-soup-cover"
-  else
-    gem "kettle-soup-cover", "~> 1.0", ">= 1.0.10", :require => false
+# Set KETTLE_RB_DEV=true for local development with path-based dependencies.
+# When false (default / CI), remote released gems are used.
+if ENV.fetch("KETTLE_RB_DEV", "false").casecmp("false").zero?
+  # Coverage (remote/released)
+  platform :mri do
+    gem "kettle-soup-cover", "~> 3.0.a", ">= 3.0.0.rc5", :require => false
   end
+else
+  eval_gemfile "coverage_local.gemfile"
 end

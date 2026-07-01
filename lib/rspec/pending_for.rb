@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 # External Libraries
+require_relative "pending_for/version"
+
 require "ruby_version"
 require "ruby_engine"
 

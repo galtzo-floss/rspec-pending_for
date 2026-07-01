@@ -5,8 +5,6 @@ module Rspec
     module Version
       VERSION = "0.1.20"
     end
-
-    # Backwards compatability shim.
-    VERSION = Version::VERSION
+    VERSION = Version::VERSION # Traditional Constant Location
   end
 end
