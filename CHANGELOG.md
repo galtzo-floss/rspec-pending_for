@@ -21,6 +21,8 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Added
 
 - Add (non)CI badge for ruby-1.8
+- Support `versions: "head"` in `pending_for` and `skip_for` to target
+  ruby-head, jruby-head, and truffleruby-head builds.
 
 ### Changed
 

@@ -168,6 +168,43 @@ RSpec.describe Rspec::PendingFor::Build do
       end
     end
 
+    context "with head version matching" do
+      before do
+        allow(RubyEngine).to receive(:is?).with("jruby").and_return(true)
+        allow(RubyVersion).to receive(:to_s).and_return("4.0.0")
+      end
+
+      around do |example|
+        original = Object.const_get(:RUBY_DESCRIPTION)
+        Object.send(:remove_const, :RUBY_DESCRIPTION)
+        Object.const_set(:RUBY_DESCRIPTION, ruby_description)
+        example.run
+      ensure
+        Object.send(:remove_const, :RUBY_DESCRIPTION)
+        Object.const_set(:RUBY_DESCRIPTION, original)
+      end
+
+      context "when the current engine build is a snapshot" do
+        let(:ruby_description) { "jruby 10.1.1.0-SNAPSHOT (4.0.0) 2026-06-30 1729f1fbd0" }
+
+        it "matches the head version sentinel" do
+          expect(
+            described_class.new(:engine => "jruby", :versions => "head").message,
+          ).to include("Behavior is broken")
+        end
+      end
+
+      context "when the current engine build is a release" do
+        let(:ruby_description) { "jruby 10.0.2.0 (3.4.5) 2026-06-01 abc123" }
+
+        it "does not match the head version sentinel" do
+          expect(
+            described_class.new(:engine => "jruby", :versions => "head").message,
+          ).to be_nil
+        end
+      end
+    end
+
     context "with nil relevant_versions (coverage focused)" do
       it "treats nil as no match via branch return" do
         # Create a subclass that returns nil to exercise the nil branch

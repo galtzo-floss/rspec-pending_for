@@ -32,7 +32,7 @@ module Rspec
     # @option options [String,Symbol] :engine ("ruby") Ruby engine name to match, e.g. :ruby, :jruby, :truffleruby
     # @option options [String,Range,Array<String,Range>] :versions
     #   A single version string or range, or an Array of version specs. Each spec can be:
-    #   - String: exact version match (e.g., "2.7.8")
+    #   - String: exact version match (e.g., "2.7.8") or "head" for head/dev/SNAPSHOT builds
     #   - Range<Gem::Version>: inclusive/exclusive bounds respected (e.g., Gem::Version.new("2.6.0")...Gem::Version.new("3.0.0"))
     #   - Range<Integer>: compares Ruby major version (e.g., 2..3). Inclusive/exclusive respected.
     #   JRuby/TruffleRuby are supported via RUBY_VERSION compatibility for Integer ranges and Gem::Version ranges.
@@ -54,7 +54,7 @@ module Rspec
     # @option options [String,Symbol] :engine ("ruby") Ruby engine name to match, e.g. :ruby, :jruby, :truffleruby
     # @option options [String,Range,Array<String,Range>] :versions
     #   A single version string or range, or an Array of version specs. Each spec can be:
-    #   - String: exact version match (e.g., "2.7.8")
+    #   - String: exact version match (e.g., "2.7.8") or "head" for head/dev/SNAPSHOT builds
     #   - Range<Gem::Version>: inclusive/exclusive bounds respected (e.g., Gem::Version.new("2.6.0")...Gem::Version.new("3.0.0"))
     #   - Range<Integer>: compares Ruby major version (e.g., 2..3). Inclusive/exclusive respected.
     #   JRuby/TruffleRuby are supported via RUBY_VERSION compatibility for Integer ranges and Gem::Version ranges.

@@ -71,7 +71,7 @@ module Rspec
 
       # Determine whether the current Ruby version matches any of the provided version specs.
       # A version spec may be:
-      # - String: exact match against RubyVersion.to_s
+      # - String: exact match against RubyVersion.to_s, or "head" for dev/SNAPSHOT builds
       # - Range[Gem::Version, Gem::Version]: inclusive/exclusive respected
       # - Range[Integer, Integer]: compares major version from RubyVersion.to_s
       def versions_include_current?
@@ -88,6 +88,8 @@ module Rspec
         relevant_versions.any? do |spec|
           case spec
           when String
+            next head_build? if spec == "head"
+
             # Support minor-version shorthand like "3.1" to match any 3.1.x
             if spec.to_s =~ /^\d+\.\d+$/
               current_major_minor = current_str.to_s.split(".")[0, 2].join(".")
@@ -120,6 +122,10 @@ module Rspec
             false
           end
         end
+      end
+
+      def head_build?
+        RUBY_DESCRIPTION.to_s.match?(/\b(?:dev|head|SNAPSHOT)\b/i)
       end
 
       def warn_about_unrecognized_engine

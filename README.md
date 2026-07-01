@@ -227,6 +227,8 @@ The :versions option accepts several forms. You can also omit :engine to match a
 
 Supported forms for :versions:
 - String: exact match to RUBY_VERSION, e.g., "3.2.4".
+- String "head": matches head/dev/SNAPSHOT builds such as ruby-head, jruby-head,
+  and truffleruby-head.
 - Array of strings or ranges: any entry that matches will trigger pending/skip.
 - Range of Gem::Version: inclusive/exclusive endpoints are respected.
 - Range of Integer: compares only the major version (e.g., 2..3 matches Ruby 2.x and 3.x depending on inclusive/exclusive).
@@ -237,6 +239,7 @@ Notes:
 - JRuby and TruffleRuby are matched using their RUBY_VERSION compatibility for Integer and Gem::Version ranges.
 - Strings must either match the full version string exactly, or only specify a partial version.
   - there is no parsing of comparison operators like ">= 3.1".
+  - Specifying "head" will match head/dev/SNAPSHOT builds.
   - Specifying "3.1" will match "3.1.x", but not "3.0.x" or "3.2.x".
   - Specifying "3" will match "3.0.x", "3.1.x", "3.2.x", etc, but not "2.7.x" or "4.0.x".
 
@@ -264,7 +267,14 @@ it "skip on any engine if the Ruby version equals 2.7.8" do
 end
 ```
 
-4) Range of Gem::Version (inclusive)
+4) Match a head build for a specific engine
+```ruby
+it "skips only on JRuby head" do
+  skip_for(:engine => :jruby, :versions => "head", :reason => "Known upstream JRuby head regression")
+end
+```
+
+5) Range of Gem::Version (inclusive)
 ```ruby
 it "pend for MRI >= 2.6.0 and <= 3.0.0" do
   pending_for(
@@ -274,7 +284,7 @@ it "pend for MRI >= 2.6.0 and <= 3.0.0" do
 end
 ```
 
-5) Range of Gem::Version (exclusive end)
+6) Range of Gem::Version (exclusive end)
 ```ruby
 it "skip for MRI >= 3.1.0 and < 3.3.0" do
   skip_for(
@@ -284,7 +294,7 @@ it "skip for MRI >= 3.1.0 and < 3.3.0" do
 end
 ```
 
-6) Range of Integer (major versions)
+7) Range of Integer (major versions)
 ```ruby
 it "pend on all Ruby 2.x and 3.x" do
   pending_for(:versions => (2..3), :reason => "Major series currently affected")

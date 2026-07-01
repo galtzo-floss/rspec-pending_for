@@ -167,6 +167,42 @@ RSpec.describe Rspec::PendingFor do
           end
         end
       end
+
+      context "as head sentinel" do
+        around do |example|
+          original = Object.const_get(:RUBY_DESCRIPTION)
+          Object.send(:remove_const, :RUBY_DESCRIPTION)
+          Object.const_set(:RUBY_DESCRIPTION, ruby_description)
+          example.run
+        ensure
+          Object.send(:remove_const, :RUBY_DESCRIPTION)
+          Object.const_set(:RUBY_DESCRIPTION, original)
+        end
+
+        before do
+          allow(RubyVersion).to receive(:to_s).and_return("4.0.0")
+        end
+
+        context "when current runtime is a head build" do
+          let(:ruby_description) { "jruby 10.1.1.0-SNAPSHOT (4.0.0) 2026-06-30 1729f1fbd0" }
+
+          it "calls pending" do
+            allow(RubyEngine).to receive(:is?).with("jruby").and_return(true)
+            expect(described_class).to receive(:pending)
+            expect(described_class.pending_for(:engine => "jruby", :versions => "head")).to be_nil
+          end
+        end
+
+        context "when current runtime is not a head build" do
+          let(:ruby_description) { "jruby 10.0.2.0 (3.4.5) 2026-06-01 abc123" }
+
+          it "does not call pending" do
+            allow(RubyEngine).to receive(:is?).with("jruby").and_return(true)
+            expect(described_class).not_to receive(:pending)
+            expect(described_class.pending_for(:engine => "jruby", :versions => "head")).to be_nil
+          end
+        end
+      end
     end
 
     context "with ranges" do
@@ -426,6 +462,42 @@ RSpec.describe Rspec::PendingFor do
               expect(described_class).not_to receive(:skip)
               expect(described_class.skip_for(:engine => "ruby", :versions => %w[2.0.0 2.2.3])).to be_nil
             end
+          end
+        end
+      end
+
+      context "as head sentinel" do
+        around do |example|
+          original = Object.const_get(:RUBY_DESCRIPTION)
+          Object.send(:remove_const, :RUBY_DESCRIPTION)
+          Object.const_set(:RUBY_DESCRIPTION, ruby_description)
+          example.run
+        ensure
+          Object.send(:remove_const, :RUBY_DESCRIPTION)
+          Object.const_set(:RUBY_DESCRIPTION, original)
+        end
+
+        before do
+          allow(RubyVersion).to receive(:to_s).and_return("4.0.0")
+        end
+
+        context "when current runtime is a head build" do
+          let(:ruby_description) { "jruby 10.1.1.0-SNAPSHOT (4.0.0) 2026-06-30 1729f1fbd0" }
+
+          it "calls skip" do
+            allow(RubyEngine).to receive(:is?).with("jruby").and_return(true)
+            expect(described_class).to receive(:skip)
+            expect(described_class.skip_for(:engine => "jruby", :versions => "head")).to be_nil
+          end
+        end
+
+        context "when current runtime is not a head build" do
+          let(:ruby_description) { "jruby 10.0.2.0 (3.4.5) 2026-06-01 abc123" }
+
+          it "does not call skip" do
+            allow(RubyEngine).to receive(:is?).with("jruby").and_return(true)
+            expect(described_class).not_to receive(:skip)
+            expect(described_class.skip_for(:engine => "jruby", :versions => "head")).to be_nil
           end
         end
       end
