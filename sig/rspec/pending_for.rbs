@@ -3,5 +3,23 @@ module Rspec
     # Public API mixed into RSpec
     def pending_for: (Hash[Symbol, untyped] options) -> untyped
     def skip_for: (Hash[Symbol, untyped] options) -> untyped
+    class Build
+      @message: String?
+      @relevant_versions: Array[untyped]
+      @relevant_engine: String?
+      @reason: String?
+
+      def initialize: (?Hash[Symbol, untyped] options) -> void
+      def message: () -> String?
+      def relevant_versions: () -> Array[untyped]
+      def relevant_engine: () -> String?
+      def reason: () -> String?
+      def current_matches_specified?: () -> bool
+    end
+
+    module Version
+      VERSION: String
+    end
+    VERSION: String
   end
 end
