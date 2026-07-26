@@ -19,7 +19,6 @@ module Rspec
   #     RSpec.configure do |c|
   #       c.include Rspec::PendingFor
   #     end
-  #
   module PendingFor
     # How to pend specs that break due to bugs in Ruby interpreters or versions
     #
