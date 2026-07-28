@@ -70,7 +70,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 and <a href="https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html">yes</a>, platform and engine support are part of the <a href="https://github.com/semver/semver/issues/716#issuecomment-869336139">public API</a>.<br>
 Please file a bug if you notice a violation of semantic versioning.</p>
 
-<h2 id="unreleased"><a href="https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.22...HEAD">Unreleased</a></h2>
+<h2 id="unreleased"><a href="https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.23...HEAD">Unreleased</a></h2>
 
 <h3 id="added">Added</h3>
 
@@ -84,6 +84,60 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 
 <h3 id="security">Security</h3>
 
+<h2 id="0123---2026-07-28">
+<a href="https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.22...v0.1.23">0.1.23</a> - 2026-07-28</h2>
+
+<ul>
+  <li>TAG: <a href="https://github.com/galtzo-floss/rspec-pending_for/releases/tag/v0.1.23">v0.1.23</a>
+</li>
+  <li>COVERAGE: 100.00% – 100/100 lines in 6 files</li>
+  <li>BRANCH COVERAGE: 100.00% – 43/43 branches in 6 files</li>
+  <li>72.73% documented</li>
+</ul>
+
+<h3 id="added-1">Added</h3>
+
+<ul>
+  <li>
+    <p>Documentation linting now has its generated <code>yard-lint</code> dependency and severity config available in the local bundle.</p>
+  </li>
+  <li>
+    <p>kettle-jem-template-20260726-001 - Projects now include YARD lint<br>
+configuration and documentation dependencies so documentation issues fail<br>
+before generated docs are refreshed.</p>
+  </li>
+  <li>
+    <p>kettle-jem-template-20260727-001 - Spec harness documentation now lists the<br>
+RSpec helpers provided by <code>kettle-test</code>.</p>
+  </li>
+</ul>
+
+<h3 id="changed-1">Changed</h3>
+
+<ul>
+  <li>kettle-jem-template-20260728-001 - Generated Ruby workflows now use clearer<br>
+setup-ruby-flash planning and can prepare appraisal-only jobs without<br>
+installing the main Gemfile bundle.</li>
+</ul>
+
+<h3 id="fixed-1">Fixed</h3>
+
+<ul>
+  <li>
+    <p>kettle-jem-template-20260726-002 - Generated version files now document their<br>
+version namespace and constants, reducing warning-only YARD lint output.</p>
+  </li>
+  <li>kettle-jem-template-20260726-003 - Coverage upload steps now treat Coveralls,<br>
+QLTY, and Codecov as optional, so provider outages do not fail CI when local<br>
+coverage thresholds still pass.</li>
+  <li>kettle-jem-template-20260728-002 - Generated RuboCop configs now ignore the<br>
+same <code>gemfiles/vendor/bundle</code> tree as <code>.gitignore</code>, so vendored dependency<br>
+installs are not reported as project lint debt.</li>
+  <li>kettle-jem-template-20260728-003 - Generated dep-heads workflows now run<br>
+TruffleRuby jobs with current RubyGems and Bundler, avoiding setup failures<br>
+before the test suite starts.</li>
+</ul>
+
 <h2 id="0122---2026-07-25">
 <a href="https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.21...v0.1.22">0.1.22</a> - 2026-07-25</h2>
 
@@ -95,7 +149,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>63.64% documented</li>
 </ul>
 
-<h3 id="changed-1">Changed</h3>
+<h3 id="changed-2">Changed</h3>
 
 <ul>
   <li>kettle-jem-template-20260716-001 - Shim gemspec manifests now include<br>
@@ -134,7 +188,7 @@ or incompatible with the project’s runtime Ruby floor.</li>
   <li>63.64% documented</li>
 </ul>
 
-<h3 id="added-1">Added</h3>
+<h3 id="added-2">Added</h3>
 
 <ul>
   <li>Add (non)CI badge for ruby-1.8</li>
@@ -149,7 +203,7 @@ ruby-head, jruby-head, and truffleruby-head builds.</li>
 the main <code>Gemfile.lock</code>.</li>
 </ul>
 
-<h3 id="fixed-1">Fixed</h3>
+<h3 id="fixed-2">Fixed</h3>
 
 <ul>
   <li>Fixed current RuboCop Gradual lock drift while preserving the remaining<br>
@@ -167,7 +221,7 @@ baseline entries.</li>
   <li>63.64% documented</li>
 </ul>
 
-<h3 id="added-2">Added</h3>
+<h3 id="added-3">Added</h3>
 
 <ul>
   <li>Documentation on hostile takeover of RubyGems
@@ -177,7 +231,7 @@ baseline entries.</li>
   </li>
 </ul>
 
-<h3 id="fixed-2">Fixed</h3>
+<h3 id="fixed-3">Fixed</h3>
 
 <ul>
   <li>compatibility with Ruby &lt; 2.2 (accidentally switched to require_relative)</li>
@@ -194,7 +248,7 @@ baseline entries.</li>
   <li>63.64% documented</li>
 </ul>
 
-<h3 id="added-3">Added</h3>
+<h3 id="added-4">Added</h3>
 
 <ul>
   <li>comprehensive documentation and examples in README.md</li>
@@ -205,14 +259,14 @@ baseline entries.</li>
   </li>
 </ul>
 
-<h3 id="changed-2">Changed</h3>
+<h3 id="changed-3">Changed</h3>
 
 <ul>
   <li>issues link updated to new org home: galtzo-floss/rspec-pending_for</li>
   <li>upgrade to kettle-dev v1.1.5 template</li>
 </ul>
 
-<h3 id="fixed-3">Fixed</h3>
+<h3 id="fixed-4">Fixed</h3>
 
 <ul>
   <li>fixed handling of version ranges in <code>skip_for</code>/<code>pending_for</code>
@@ -232,7 +286,7 @@ baseline entries.</li>
   <li>63.64% documented</li>
 </ul>
 
-<h3 id="added-4">Added</h3>
+<h3 id="added-5">Added</h3>
 
 <ul>
   <li>Versions can now be ranges!</li>
@@ -249,14 +303,14 @@ baseline entries.</li>
   <li>63.64% documented</li>
 </ul>
 
-<h3 id="added-5">Added</h3>
+<h3 id="added-6">Added</h3>
 
 <ul>
   <li>Specs for <code>skip_for</code>
 </li>
 </ul>
 
-<h3 id="fixed-4">Fixed</h3>
+<h3 id="fixed-5">Fixed</h3>
 
 <ul>
   <li>Compatibility with truffleruby (maybe? not able to run it in CI yet)</li>

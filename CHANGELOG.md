@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [0.1.23] - 2026-07-28
+
+- TAG: [v0.1.23][0.1.23t]
+- COVERAGE: 100.00% -- 100/100 lines in 6 files
+- BRANCH COVERAGE: 100.00% -- 43/43 branches in 6 files
+- 72.73% documented
+
+### Added
+
 - Documentation linting now has its generated `yard-lint` dependency and severity config available in the local bundle.
 
 - kettle-jem-template-20260726-001 - Projects now include YARD lint
@@ -35,10 +54,6 @@ Please file a bug if you notice a violation of semantic versioning.
   setup-ruby-flash planning and can prepare appraisal-only jobs without
   installing the main Gemfile bundle.
 
-### Deprecated
-
-### Removed
-
 ### Fixed
 
 - kettle-jem-template-20260726-002 - Generated version files now document their
@@ -53,8 +68,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - kettle-jem-template-20260728-003 - Generated dep-heads workflows now run
   TruffleRuby jobs with current RubyGems and Bundler, avoiding setup failures
   before the test suite starts.
-
-### Security
 
 ## [0.1.22] - 2026-07-25
 
@@ -179,7 +192,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - Compatibility with truffleruby (maybe? not able to run it in CI yet)
 - Fixed compatibility with Ruby < 2
 
-[Unreleased]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.22...HEAD
+[Unreleased]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.23...HEAD
+[0.1.23]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.22...v0.1.23
+[0.1.23t]: https://github.com/galtzo-floss/rspec-pending_for/releases/tag/v0.1.23
 [0.1.22]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.21...v0.1.22
 [0.1.22t]: https://github.com/galtzo-floss/rspec-pending_for/releases/tag/v0.1.22
 [0.1.21]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.20...v0.1.21
