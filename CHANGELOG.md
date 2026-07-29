@@ -28,6 +28,17 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+### Security
+
+## [0.1.24] - 2026-07-28
+
+- TAG: [v0.1.24][0.1.24t]
+- COVERAGE: 100.00% -- 100/100 lines in 6 files
+- BRANCH COVERAGE: 100.00% -- 43/43 branches in 6 files
+- 72.73% documented
+
+### Fixed
+
 - kettle-jem-template-20260728-005 - VersionGem bootstrap now creates the
   missing canonical version spec when a project only has shim namespace version
   specs.
@@ -35,8 +46,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - kettle-jem-template-20260729-001 - Generated JRuby 9.4 workflows now use the
   legacy manual bundle install path, avoiding setup-time Bundler full-index
   failures against `gem.coop`.
-
-### Security
 
 ## [0.1.23] - 2026-07-28
 
@@ -204,7 +213,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - Compatibility with truffleruby (maybe? not able to run it in CI yet)
 - Fixed compatibility with Ruby < 2
 
-[Unreleased]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.23...HEAD
+[Unreleased]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.24...HEAD
+[0.1.24]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.23...v0.1.24
+[0.1.24t]: https://github.com/galtzo-floss/rspec-pending_for/releases/tag/v0.1.24
 [0.1.23]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.22...v0.1.23
 [0.1.23t]: https://github.com/galtzo-floss/rspec-pending_for/releases/tag/v0.1.23
 [0.1.22]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.21...v0.1.22
