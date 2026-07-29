@@ -133,9 +133,14 @@ coverage thresholds still pass.</li>
   <li>kettle-jem-template-20260728-002 - Generated RuboCop configs now ignore the<br>
 same <code>gemfiles/vendor/bundle</code> tree as <code>.gitignore</code>, so vendored dependency<br>
 installs are not reported as project lint debt.</li>
-  <li>kettle-jem-template-20260728-003 - Generated dep-heads workflows now run<br>
+  <li>
+    <p>kettle-jem-template-20260728-003 - Generated dep-heads workflows now run<br>
 TruffleRuby jobs with current RubyGems and Bundler, avoiding setup failures<br>
-before the test suite starts.</li>
+before the test suite starts.</p>
+  </li>
+  <li>kettle-jem-template-20260728-004 - Generated dep-heads workflows now use the<br>
+setup-ruby Bundler install path for direct appraisal Gemfiles, avoiding rv<br>
+lockfile parser failures on Git and path dependencies.</li>
 </ul>
 
 <h2 id="0122---2026-07-25">
