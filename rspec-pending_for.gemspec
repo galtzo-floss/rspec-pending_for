@@ -87,22 +87,15 @@ Gem::Specification.new do |spec|
   ].select { |path| File.exist?(File.join(gemspec_root, path)) }
 
   # Specify which files are part of the released package.
-  spec.files = Dir[
-    # Executables and tasks
-    "exe/*",
-    "lib/**/*.rb",
-    "lib/**/*.rake",
-    # Signatures
-    "sig/**/*.rbs"
-] + [
-  # Root package metadata
-  *package_metadata_files,
+  spec.files = [
+    # Root package metadata
+    *package_metadata_files,
 
-  # Code / tasks / data (NOTE: exe/ is specified via spec.bindir and spec.executables below)
-  *enumerate_package_files.call("lib"),
-  # Executables and executable support scripts
-  *enumerate_package_files.call("exe")
-]
+    # Code / tasks / data (NOTE: exe/ is specified via spec.bindir and spec.executables below)
+    *enumerate_package_files.call("lib"),
+    # Executables and executable support scripts
+    *enumerate_package_files.call("exe")
+  ]
   spec.rdoc_options += [
     "--title",
     "#{spec.name} - #{spec.summary}",
@@ -138,7 +131,7 @@ Gem::Specification.new do |spec|
   #       and preferably a modular one (see gemfiles/modular/*.gemfile).
 
   # Dev, Test, & Release Tasks
-  spec.add_development_dependency("kettle-dev", "~> 2.5", ">= 2.5.11")             # ruby >= 2.4
+  spec.add_development_dependency("kettle-dev", "~> 2.5", ">= 2.5.13")             # ruby >= 2.4
 
   # Security
   spec.add_development_dependency("bundler-audit", "~> 0.9.3")                      # ruby >= 2.0.0
