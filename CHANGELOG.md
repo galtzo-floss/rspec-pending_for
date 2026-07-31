@@ -20,15 +20,28 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
-- kettle-jem-template-20260729-005 - Gemspec metadata now publishes this
-  project's RubyForum tag as `mailing_list_uri`, and support docs link to the
-  tagged RubyForum community alongside Discord.
-
 ### Changed
 
 ### Deprecated
 
 ### Removed
+
+### Fixed
+
+### Security
+
+## [0.1.25] - 2026-07-31
+
+- TAG: [v0.1.25][0.1.25t]
+- COVERAGE: 100.00% -- 100/100 lines in 6 files
+- BRANCH COVERAGE: 100.00% -- 43/43 branches in 6 files
+- 72.73% documented
+
+### Added
+
+- kettle-jem-template-20260729-005 - Gemspec metadata now publishes this
+  project's RubyForum tag as `mailing_list_uri`, and support docs link to the
+  tagged RubyForum community alongside Discord.
 
 ### Fixed
 
@@ -43,8 +56,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - kettle-jem-template-20260730-001 - Gemspec package file enumeration now runs
   relative to the gemspec directory, so packaged template assets are included
   even when the gemspec is loaded from another working directory.
-
-### Security
 
 ## [0.1.24] - 2026-07-28
 
@@ -229,7 +240,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - Compatibility with truffleruby (maybe? not able to run it in CI yet)
 - Fixed compatibility with Ruby < 2
 
-[Unreleased]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.24...HEAD
+[Unreleased]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.25...HEAD
+[0.1.25]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.24...v0.1.25
+[0.1.25t]: https://github.com/galtzo-floss/rspec-pending_for/releases/tag/v0.1.25
 [0.1.24]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.23...v0.1.24
 [0.1.24t]: https://github.com/galtzo-floss/rspec-pending_for/releases/tag/v0.1.24
 [0.1.23]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.22...v0.1.23

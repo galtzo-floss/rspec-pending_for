@@ -70,7 +70,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 and <a href="https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html">yes</a>, platform and engine support are part of the <a href="https://github.com/semver/semver/issues/716#issuecomment-869336139">public API</a>.<br>
 Please file a bug if you notice a violation of semantic versioning.</p>
 
-<h2 id="unreleased"><a href="https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.24...HEAD">Unreleased</a></h2>
+<h2 id="unreleased"><a href="https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.25...HEAD">Unreleased</a></h2>
 
 <h3 id="added">Added</h3>
 
@@ -84,6 +84,42 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 
 <h3 id="security">Security</h3>
 
+<h2 id="0125---2026-07-31">
+<a href="https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.24...v0.1.25">0.1.25</a> - 2026-07-31</h2>
+
+<ul>
+  <li>TAG: <a href="https://github.com/galtzo-floss/rspec-pending_for/releases/tag/v0.1.25">v0.1.25</a>
+</li>
+  <li>COVERAGE: 100.00% – 100/100 lines in 6 files</li>
+  <li>BRANCH COVERAGE: 100.00% – 43/43 branches in 6 files</li>
+  <li>72.73% documented</li>
+</ul>
+
+<h3 id="added-1">Added</h3>
+
+<ul>
+  <li>kettle-jem-template-20260729-005 - Gemspec metadata now publishes this<br>
+project’s RubyForum tag as <code>mailing_list_uri</code>, and support docs link to the<br>
+tagged RubyForum community alongside Discord.</li>
+</ul>
+
+<h3 id="fixed-1">Fixed</h3>
+
+<ul>
+  <li>
+    <p>kettle-jem-template-20260729-002 - VersionGem bootstrap now preserves<br>
+and templates dedicated <code>version_gem.rb</code> entrypoints even when the gemspec<br>
+dependency is intentionally omitted, and generated anonymous-loader specs<br>
+cover both <code>version.rb</code> and <code>version_gem.rb</code>.</p>
+  </li>
+  <li>kettle-jem-template-20260729-003 - Old-Ruby gems below the VersionGem runtime<br>
+floor now get managed minimal <code>version.rb</code> files and anonymous-loader version<br>
+specs without adding <code>version_gem</code>.</li>
+  <li>kettle-jem-template-20260730-001 - Gemspec package file enumeration now runs<br>
+relative to the gemspec directory, so packaged template assets are included<br>
+even when the gemspec is loaded from another working directory.</li>
+</ul>
+
 <h2 id="0124---2026-07-28">
 <a href="https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.23...v0.1.24">0.1.24</a> - 2026-07-28</h2>
 
@@ -95,7 +131,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>72.73% documented</li>
 </ul>
 
-<h3 id="fixed-1">Fixed</h3>
+<h3 id="fixed-2">Fixed</h3>
 
 <ul>
   <li>
@@ -121,7 +157,7 @@ failures against <code>gem.coop</code>.</p>
   <li>72.73% documented</li>
 </ul>
 
-<h3 id="added-1">Added</h3>
+<h3 id="added-2">Added</h3>
 
 <ul>
   <li>
@@ -146,7 +182,7 @@ setup-ruby-flash planning and can prepare appraisal-only jobs without<br>
 installing the main Gemfile bundle.</li>
 </ul>
 
-<h3 id="fixed-2">Fixed</h3>
+<h3 id="fixed-3">Fixed</h3>
 
 <ul>
   <li>
@@ -219,7 +255,7 @@ or incompatible with the project’s runtime Ruby floor.</li>
   <li>63.64% documented</li>
 </ul>
 
-<h3 id="added-2">Added</h3>
+<h3 id="added-3">Added</h3>
 
 <ul>
   <li>Add (non)CI badge for ruby-1.8</li>
@@ -234,7 +270,7 @@ ruby-head, jruby-head, and truffleruby-head builds.</li>
 the main <code>Gemfile.lock</code>.</li>
 </ul>
 
-<h3 id="fixed-3">Fixed</h3>
+<h3 id="fixed-4">Fixed</h3>
 
 <ul>
   <li>Fixed current RuboCop Gradual lock drift while preserving the remaining<br>
@@ -252,7 +288,7 @@ baseline entries.</li>
   <li>63.64% documented</li>
 </ul>
 
-<h3 id="added-3">Added</h3>
+<h3 id="added-4">Added</h3>
 
 <ul>
   <li>Documentation on hostile takeover of RubyGems
@@ -262,7 +298,7 @@ baseline entries.</li>
   </li>
 </ul>
 
-<h3 id="fixed-4">Fixed</h3>
+<h3 id="fixed-5">Fixed</h3>
 
 <ul>
   <li>compatibility with Ruby &lt; 2.2 (accidentally switched to require_relative)</li>
@@ -279,7 +315,7 @@ baseline entries.</li>
   <li>63.64% documented</li>
 </ul>
 
-<h3 id="added-4">Added</h3>
+<h3 id="added-5">Added</h3>
 
 <ul>
   <li>comprehensive documentation and examples in README.md</li>
@@ -297,7 +333,7 @@ baseline entries.</li>
   <li>upgrade to kettle-dev v1.1.5 template</li>
 </ul>
 
-<h3 id="fixed-5">Fixed</h3>
+<h3 id="fixed-6">Fixed</h3>
 
 <ul>
   <li>fixed handling of version ranges in <code>skip_for</code>/<code>pending_for</code>
@@ -317,7 +353,7 @@ baseline entries.</li>
   <li>63.64% documented</li>
 </ul>
 
-<h3 id="added-5">Added</h3>
+<h3 id="added-6">Added</h3>
 
 <ul>
   <li>Versions can now be ranges!</li>
@@ -334,14 +370,14 @@ baseline entries.</li>
   <li>63.64% documented</li>
 </ul>
 
-<h3 id="added-6">Added</h3>
+<h3 id="added-7">Added</h3>
 
 <ul>
   <li>Specs for <code>skip_for</code>
 </li>
 </ul>
 
-<h3 id="fixed-6">Fixed</h3>
+<h3 id="fixed-7">Fixed</h3>
 
 <ul>
   <li>Compatibility with truffleruby (maybe? not able to run it in CI yet)</li>
