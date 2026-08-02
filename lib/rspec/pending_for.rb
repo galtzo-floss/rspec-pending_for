@@ -1,17 +1,16 @@
 # frozen_string_literal: true
 
 # External Libraries
-require_relative "pending_for/version"
 
 require "ruby_version"
 require "ruby_engine"
 
 # This gem
 # NOTE: Switch to require_relative once dropping support for Ruby < 2.2
-require "rspec/pending_for/version"
 require "rspec/pending_for/engine_or_versions_required"
 require "rspec/pending_for/build"
 require "rspec/pending_for/rspec"
+require_relative "pending_for/version"
 
 module Rspec
   # Use with Rspec by including in your example groups, just like any other Rspec helpers:
