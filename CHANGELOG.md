@@ -22,16 +22,29 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [0.1.26] - 2026-08-12
+
+- TAG: [v0.1.26][0.1.26t]
+- COVERAGE: 100.00% -- 99/99 lines in 6 files
+- BRANCH COVERAGE: 100.00% -- 43/43 branches in 6 files
+- 72.73% documented
+
+### Changed
+
 - kettle-jem-template-20260801-001 - Generated README gem dashboard links now
   use ClickGems instead of BestGems.
 
 - Prepare project for kettle-jem templates: updated 19 project files across dependencies (19).
 
 - Apply kettle-jem templates: updated 8 project files across code and tests (2), configuration (1), dependencies (1), documentation (1), other (3).
-
-### Deprecated
-
-### Removed
 
 ### Fixed
 
@@ -47,8 +60,6 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - kettle-jem-template-20260802-001 - Devcontainer JSON files now merge as JSONC,
   preserving comments and trailing commas during template updates.
-
-### Security
 
 ## [0.1.25] - 2026-07-31
 
@@ -245,7 +256,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - Compatibility with truffleruby (maybe? not able to run it in CI yet)
 - Fixed compatibility with Ruby < 2
 
-[Unreleased]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.25...HEAD
+[Unreleased]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.26...HEAD
+[0.1.26]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.25...v0.1.26
+[0.1.26t]: https://github.com/galtzo-floss/rspec-pending_for/releases/tag/v0.1.26
 [0.1.25]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.24...v0.1.25
 [0.1.25t]: https://github.com/galtzo-floss/rspec-pending_for/releases/tag/v0.1.25
 [0.1.24]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.23...v0.1.24
