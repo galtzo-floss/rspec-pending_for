@@ -1,5 +1,5 @@
 {
-  "gemfiles/modular/templating.gemfile:3520099156": [
-    [14, 3, 50, "Bundler/DuplicatedGem: Gem `tree_sitter_language_pack` requirements already given on line 10 of the Gemfile.", 1000260798]
+  "gemfiles/modular/templating.gemfile:3733566691": [
+    [15, 3, 50, "Bundler/DuplicatedGem: Gem `tree_sitter_language_pack` requirements already given on line 11 of the Gemfile.", 1000260798]
   ]
 }
