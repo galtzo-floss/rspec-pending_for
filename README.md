@@ -101,7 +101,9 @@ The _amazing_ test matrix is powered by the kettle-dev stack.
 
 </details>
 
-### Enterprise Support [![Tidelift](https://tidelift.com/badges/package/rubygems/rspec-pending_for)](https://tidelift.com/subscription/pkg/rubygems-rspec-pending_for?utm_source=rubygems-rspec-pending_for&utm_medium=referral&utm_campaign=readme)
+### Enterprise Support
+
+[![Tidelift](https://tidelift.com/badges/package/rubygems/rspec-pending_for)](https://tidelift.com/subscription/pkg/rubygems-rspec-pending_for?utm_source=rubygems-rspec-pending_for&utm_medium=referral&utm_campaign=readme)
 
 Available as part of the Tidelift Subscription.
 
@@ -493,7 +495,7 @@ See [LICENSE.md][📄license] for the official copyright notice.
 <summary>Copyright holders</summary>
 
 - Copyright (c) 2015, 2017-2018, 2020-2022, 2025-2026 Peter H. Boling
-- Copyright (c) 2025 Aboling0
+- Copyright (c) 2025 Annibelle Boling
 
 </details>
 
