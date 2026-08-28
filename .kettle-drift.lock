@@ -1,28 +1,10 @@
 {
-  "- [kc] kettle-jem/template: updated 1 project file:\n- code and tests (1)": [
-    {
-      "file": "CHANGELOG.md",
-      "lines": [
-        30,
-        53
-      ]
-    }
-  ],
   "// Use 'forwardPorts' to make a list of ports inside the container available locally.\n// \"forwardPorts\": [],": [
     {
       "file": ".devcontainer/devcontainer.json",
       "lines": [
         11,
         22
-      ]
-    }
-  ],
-  ":vendored_gems_env => \"VENDORED_GEMS\",\n:vendor_gem_dir_env => \"VENDOR_GEM_DIR\",": [
-    {
-      "file": "gemfiles/modular/templating_local.gemfile",
-      "lines": [
-        80,
-        91
       ]
     }
   ]
