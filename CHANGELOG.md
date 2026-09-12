@@ -22,14 +22,6 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
-- [kc] kettle-jem/prepare: updated 18 project files:
-  - dependencies (18)
-
-- [kc] kettle-jem/template: updated 21 project files:
-  - code and tests (2)
-  - dependencies (18)
-  - other (1)
-
 ### Deprecated
 
 ### Removed
@@ -37,6 +29,23 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Fixed
 
 ### Security
+
+## [0.1.28] - 2026-09-11
+
+- TAG: [v0.1.28][0.1.28t]
+- COVERAGE: 100.00% -- 99/99 lines in 6 files
+- BRANCH COVERAGE: 100.00% -- 43/43 branches in 6 files
+- 72.73% documented
+
+### Changed
+
+- [kc] kettle-jem/prepare: updated 18 project files:
+  - dependencies (18)
+
+- [kc] kettle-jem/template: updated 21 project files:
+  - code and tests (2)
+  - dependencies (18)
+  - other (1)
 
 ## [0.1.27] - 2026-08-13
 
@@ -279,7 +288,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - Compatibility with truffleruby (maybe? not able to run it in CI yet)
 - Fixed compatibility with Ruby < 2
 
-[Unreleased]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.27...HEAD
+[Unreleased]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.28...HEAD
+[0.1.28]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.27...v0.1.28
+[0.1.28t]: https://github.com/galtzo-floss/rspec-pending_for/releases/tag/v0.1.28
 [0.1.27]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.26...v0.1.27
 [0.1.27t]: https://github.com/galtzo-floss/rspec-pending_for/releases/tag/v0.1.27
 [0.1.26]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.25...v0.1.26

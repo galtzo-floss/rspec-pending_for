@@ -39,7 +39,7 @@
     [128, 31, 6, "Lint/LtsRuby/UnavailableMethod: Regexp/String/Symbol#match? is unavailable before Ruby 2.4.", 1464563049],
     [145, 30, 6, "Lint/LtsRuby/UnavailableMethod: Pathname#empty? is unavailable before Ruby 2.4.", 1165546895]
   ],
-  "rspec-pending_for.gemspec:2893229934": [
+  "rspec-pending_for.gemspec:3223962593": [
     [25, 8, 4, "Lint/LtsRuby/UnavailableMethod: Thread#name= is unavailable before Ruby 2.3.", 2087876002],
     [47, 24, 9, "Lint/LtsRuby/UnavailableMethod: Symbol#end_with? is unavailable before Ruby 2.7.", 308216808],
     [53, 16, 16, "Lint/LtsRuby/UnavailableMethod: Matrix/Vector#[]= is unavailable before Ruby 2.6.", 3147164910],
