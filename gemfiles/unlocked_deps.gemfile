@@ -12,6 +12,8 @@ eval_gemfile("modular/documentation.gemfile")
 
 eval_gemfile("modular/optional.gemfile")
 
+eval_gemfile("modular/shunted.gemfile")
+
 eval_gemfile("modular/rspec.gemfile")
 
 eval_gemfile("modular/style.gemfile")
