@@ -41,6 +41,7 @@ template_state:
     - ".github/workflows/jruby-9.3.yml"
     - ".github/workflows/jruby-9.4.yml"
     - ".github/workflows/jruby.yml"
+    - ".github/workflows/license-eye.yml"
     - ".github/workflows/locked_deps.yml"
     - ".github/workflows/opencollective.yml"
     - ".github/workflows/ruby-2.4.yml"
@@ -66,6 +67,7 @@ template_state:
     - Appraisal.root.gemfile
     - Appraisals
     - CONTRIBUTING.md
+    - README.md
     - Rakefile
     - bin/turbo_tests2
     - spec/rspec/pending_for/version_spec.rb
