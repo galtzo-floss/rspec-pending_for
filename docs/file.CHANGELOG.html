@@ -70,7 +70,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 and <a href="https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html">yes</a>, platform and engine support are part of the <a href="https://github.com/semver/semver/issues/716#issuecomment-869336139">public API</a>.<br>
 Please file a bug if you notice a violation of semantic versioning.</p>
 
-<h2 id="unreleased"><a href="https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.28...HEAD">Unreleased</a></h2>
+<h2 id="unreleased"><a href="https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.29...HEAD">Unreleased</a></h2>
 
 <h3 id="added">Added</h3>
 
@@ -84,6 +84,48 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 
 <h3 id="security">Security</h3>
 
+<h2 id="0129---2026-11-15">
+<a href="https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.28...v0.1.29">0.1.29</a> - 2026-11-15</h2>
+
+<ul>
+  <li>TAG: <a href="https://github.com/galtzo-floss/rspec-pending_for/releases/tag/v0.1.29">v0.1.29</a>
+</li>
+  <li>COVERAGE: 100.00% – 99/99 lines in 6 files</li>
+  <li>BRANCH COVERAGE: 100.00% – 43/43 branches in 6 files</li>
+  <li>72.73% documented</li>
+</ul>
+
+<h3 id="added-1">Added</h3>
+
+<ul>
+  <li>kettle-jem-template-20260913-001 - Templating now also surfaces a review<br>
+entry in <code>dependency_conflicts.resolve</code> when a direct development<br>
+dependency doesn’t support one or more of this project’s declared<br>
+<code>engines:</code> and has no template-managed modular home (e.g. <code>sqlite3</code> on<br>
+<code>jruby</code>). Review each entry and pick a resolution per the project’s own<br>
+engine support needs.</li>
+</ul>
+
+<h3 id="changed-1">Changed</h3>
+
+<ul>
+  <li>[kc] kettle-jem/prepare: updated 32 project files:
+    <ul>
+      <li>configuration (2)</li>
+      <li>dependencies (30)</li>
+    </ul>
+  </li>
+  <li>[kc] kettle-jem/template: updated 62 project files:
+    <ul>
+      <li>code and tests (3)</li>
+      <li>dependencies (20)</li>
+      <li>documentation (2)</li>
+      <li>other (6)</li>
+      <li>workflows (31)</li>
+    </ul>
+  </li>
+</ul>
+
 <h2 id="0128---2026-09-11">
 <a href="https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.27...v0.1.28">0.1.28</a> - 2026-09-11</h2>
 
@@ -95,7 +137,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>72.73% documented</li>
 </ul>
 
-<h3 id="changed-1">Changed</h3>
+<h3 id="changed-2">Changed</h3>
 
 <ul>
   <li>[kc] kettle-jem/prepare: updated 18 project files:
@@ -123,7 +165,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>72.73% documented</li>
 </ul>
 
-<h3 id="changed-2">Changed</h3>
+<h3 id="changed-3">Changed</h3>
 
 <ul>
   <li>[kc] kettle-jem/prepare: updated 4 project files:
@@ -149,7 +191,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>72.73% documented</li>
 </ul>
 
-<h3 id="changed-3">Changed</h3>
+<h3 id="changed-4">Changed</h3>
 
 <ul>
   <li>
@@ -193,7 +235,7 @@ preserving comments and trailing commas during template updates.</li>
   <li>72.73% documented</li>
 </ul>
 
-<h3 id="added-1">Added</h3>
+<h3 id="added-2">Added</h3>
 
 <h3 id="fixed-2">Fixed</h3>
 
@@ -220,16 +262,9 @@ even when the gemspec is loaded from another working directory.</li>
 <h3 id="fixed-3">Fixed</h3>
 
 <ul>
-  <li>
-    <p>kettle-jem-template-20260728-005 - VersionGem bootstrap now creates the<br>
+  <li>kettle-jem-template-20260728-005 - VersionGem bootstrap now creates the<br>
 missing canonical version spec when a project only has shim namespace version<br>
-specs.</p>
-  </li>
-  <li>
-    <p>kettle-jem-template-20260729-001 - Generated JRuby 9.4 workflows now use the<br>
-legacy manual bundle install path, avoiding setup-time Bundler full-index<br>
-failures against <code>gem.coop</code>.</p>
-  </li>
+specs.</li>
 </ul>
 
 <h2 id="0123---2026-07-28">
@@ -243,7 +278,7 @@ failures against <code>gem.coop</code>.</p>
   <li>72.73% documented</li>
 </ul>
 
-<h3 id="added-2">Added</h3>
+<h3 id="added-3">Added</h3>
 
 <ul>
   <li>
@@ -260,7 +295,7 @@ RSpec helpers provided by <code>kettle-test</code>.</p>
   </li>
 </ul>
 
-<h3 id="changed-4">Changed</h3>
+<h3 id="changed-5">Changed</h3>
 
 <ul>
   <li>kettle-jem-template-20260728-001 - Generated Ruby workflows now use clearer<br>
@@ -302,7 +337,7 @@ lockfile parser failures on Git and path dependencies.</li>
   <li>63.64% documented</li>
 </ul>
 
-<h3 id="changed-5">Changed</h3>
+<h3 id="changed-6">Changed</h3>
 
 <ul>
   <li>kettle-jem-template-20260716-002 - Generated gemspec manifests now ship fewer<br>
@@ -335,7 +370,7 @@ or incompatible with the project’s runtime Ruby floor.</li>
   <li>63.64% documented</li>
 </ul>
 
-<h3 id="added-3">Added</h3>
+<h3 id="added-4">Added</h3>
 
 <ul>
   <li>Add (non)CI badge for ruby-1.8</li>
@@ -368,7 +403,7 @@ baseline entries.</li>
   <li>63.64% documented</li>
 </ul>
 
-<h3 id="added-4">Added</h3>
+<h3 id="added-5">Added</h3>
 
 <ul>
   <li>Documentation on hostile takeover of RubyGems
@@ -395,7 +430,7 @@ baseline entries.</li>
   <li>63.64% documented</li>
 </ul>
 
-<h3 id="added-5">Added</h3>
+<h3 id="added-6">Added</h3>
 
 <ul>
   <li>comprehensive documentation and examples in README.md</li>
@@ -406,7 +441,7 @@ baseline entries.</li>
   </li>
 </ul>
 
-<h3 id="changed-6">Changed</h3>
+<h3 id="changed-7">Changed</h3>
 
 <ul>
   <li>issues link updated to new org home: galtzo-floss/rspec-pending_for</li>
@@ -433,7 +468,7 @@ baseline entries.</li>
   <li>63.64% documented</li>
 </ul>
 
-<h3 id="added-6">Added</h3>
+<h3 id="added-7">Added</h3>
 
 <ul>
   <li>Versions can now be ranges!</li>
@@ -450,7 +485,7 @@ baseline entries.</li>
   <li>63.64% documented</li>
 </ul>
 
-<h3 id="added-7">Added</h3>
+<h3 id="added-8">Added</h3>
 
 <ul>
   <li>Specs for <code>skip_for</code>

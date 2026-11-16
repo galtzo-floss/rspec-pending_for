@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [0.1.29] - 2026-11-15
+
+- TAG: [v0.1.29][0.1.29t]
+- COVERAGE: 100.00% -- 99/99 lines in 6 files
+- BRANCH COVERAGE: 100.00% -- 43/43 branches in 6 files
+- 72.73% documented
+
+### Added
+
 - kettle-jem-template-20260913-001 - Templating now also surfaces a review
   entry in `dependency_conflicts.resolve` when a direct development
   dependency doesn't support one or more of this project's declared
@@ -39,14 +58,6 @@ Please file a bug if you notice a violation of semantic versioning.
   - documentation (2)
   - other (6)
   - workflows (31)
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## [0.1.28] - 2026-09-11
 
@@ -302,7 +313,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - Compatibility with truffleruby (maybe? not able to run it in CI yet)
 - Fixed compatibility with Ruby < 2
 
-[Unreleased]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.28...HEAD
+[Unreleased]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.29...HEAD
+[0.1.29]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.28...v0.1.29
+[0.1.29t]: https://github.com/galtzo-floss/rspec-pending_for/releases/tag/v0.1.29
 [0.1.28]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.27...v0.1.28
 [0.1.28t]: https://github.com/galtzo-floss/rspec-pending_for/releases/tag/v0.1.28
 [0.1.27]: https://github.com/galtzo-floss/rspec-pending_for/compare/v0.1.26...v0.1.27
